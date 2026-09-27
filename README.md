@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SokoPay — Payments Website and Dashboard Prototype
 
-## Getting Started
+A Next.js/React frontend for a payments product concept, with marketing pages, a dashboard, and an animated multi-step transfer demonstration.
 
-First, run the development server:
+## Run locally
+
+Use Node.js 22 LTS and npm.
 
 ```bash
+git clone https://github.com/FuaadBashi/SokoPay_website.git
+cd SokoPay_website
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000). Other available commands are `npm run lint`, `npm run build`, and `npm start` (after a build).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Explore the demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Purpose |
+| --- | --- |
+| `/` | Product landing page |
+| `/products`, `/pricing`, `/corridors` | Product and market pages |
+| `/dashboard` | Dashboard concept |
+| `/dashboard/send` | Recipient, amount, review, and transfer animation |
+| `/login`, `/signup` | Account UI pages |
 
-## Learn More
+## Implementation
 
-To learn more about Next.js, take a look at the following resources:
+- [src/app](src/app): App Router pages and layouts.
+- [src/components](src/components): reusable marketing and dashboard components.
+- [package.json](package.json): Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, and Lucide.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Demo boundary
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The send flow uses hard-coded recipients and exchange rates, with a timer to simulate transfer progress. It does not move money or verify identity. Account screens and product copy should be reviewed as frontend demonstrations, not evidence of an operational payment service.
