@@ -80,13 +80,13 @@ export default function Industries() {
             padding: "6px 16px",
             borderRadius: "100px",
             marginBottom: "16px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
           }}>
             Industries
           </span>
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
             <h2 style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-display)",
               fontSize: "clamp(30px, 4.5vw, 50px)",
               fontWeight: "800",
               color: "#0B3C5D",
@@ -95,7 +95,7 @@ export default function Industries() {
               maxWidth: "600px",
             }}>
               Our solutions resonate with<br />
-              your industry's specific needs
+              your industry’s specific needs
             </h2>
             <motion.a
               href="#"
@@ -107,7 +107,7 @@ export default function Industries() {
                 color: "#00A86B",
                 fontSize: "15px",
                 fontWeight: "700",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "var(--font-body)",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
               }}
@@ -217,7 +217,7 @@ function IndustryCard({
           fontSize: "18px",
           fontWeight: "800",
           color: "#fff",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: "var(--font-display)",
           letterSpacing: "-0.01em",
           textShadow: "0 1px 6px rgba(0,0,0,0.2)",
         }}>
@@ -232,7 +232,7 @@ function IndustryCard({
             style={{
               color: "rgba(255,255,255,0.9)",
               fontSize: "13px",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-body)",
               lineHeight: 1.5,
               margin: 0,
               maxWidth: "200px",

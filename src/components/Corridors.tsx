@@ -36,7 +36,6 @@ function ArcLine({ x1, y1, x2, y2, delay, idx }: {
   const mx = (x1 + x2) / 2;
   const my = (Math.min(y1, y2)) - 35 - (idx % 3) * 8;
   const d = `M ${x1} ${y1} Q ${mx} ${my} ${x2} ${y2}`;
-  const dotId = `dot-${idx}`;
 
   return (
     <g>
@@ -82,17 +81,17 @@ export default function Corridors() {
           <span style={{
             display: "inline-block", background: "rgba(0,168,107,0.15)", color: "#00A86B",
             fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase",
-            padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans', sans-serif",
+            padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)",
           }}>Payment Corridors</span>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "clamp(28px, 4.5vw, 52px)",
+            fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4.5vw, 52px)",
             fontWeight: "800", color: "#fff", lineHeight: 1.15, margin: "0 0 16px",
           }}>East Africa ↔ GCC</h2>
           <p style={{
-            color: "rgba(255,255,255,0.5)", fontSize: "17px", fontFamily: "'DM Sans', sans-serif",
+            color: "rgba(255,255,255,0.5)", fontSize: "17px", fontFamily: "var(--font-body)",
             maxWidth: "500px", margin: "0 auto", lineHeight: 1.65,
           }}>
-            The world's fastest-growing remittance corridor. SOKOPAY connects every major hub with real-time rails.
+            The world’s fastest-growing remittance corridor. SOKOPAY connects every major hub with real-time rails.
           </p>
         </motion.div>
 
@@ -105,7 +104,7 @@ export default function Corridors() {
             transition={{ duration: 0.6, delay: 0.2 }}
             style={{ display: "flex", flexDirection: "column", gap: "8px" }}
           >
-            <div style={{ color: "#00A86B", fontSize: "10px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "8px", fontFamily: "'DM Sans',sans-serif" }}>
+            <div style={{ color: "#00A86B", fontSize: "10px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "8px", fontFamily: "var(--font-body)" }}>
               East Africa
             </div>
             {eastAfrica.map((c, i) => (
@@ -124,7 +123,7 @@ export default function Corridors() {
               >
                 <span style={{ fontSize: "18px" }}>{c.flag}</span>
                 <div>
-                  <div style={{ color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.2 }}>{c.city}</div>
+                  <div style={{ color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-display)", lineHeight: 1.2 }}>{c.city}</div>
                   <div style={{ color: "rgba(255,255,255,0.35)", fontSize: "10px" }}>{c.pop}</div>
                 </div>
               </motion.div>
@@ -236,7 +235,7 @@ export default function Corridors() {
                   />
                   <circle cx={c.x} cy={c.y} r="2.5" fill="#fff" opacity="0.95"/>
                   <motion.text x={c.x - 4} y={c.y + 14} fontSize="6.5"
-                    fill="rgba(255,255,255,0.65)" fontFamily="'DM Sans',sans-serif" fontWeight="600"
+                    fill="rgba(255,255,255,0.65)" fontFamily="var(--font-body)" fontWeight="600"
                     initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ delay: 0.85 + i * 0.08 }}
                   >{c.city}</motion.text>
                 </g>
@@ -257,7 +256,7 @@ export default function Corridors() {
                   />
                   <circle cx={c.x} cy={c.y} r="2.5" fill="#fff" opacity="0.95"/>
                   <motion.text x={c.x + 8} y={c.y + 4} fontSize="6.5"
-                    fill="rgba(255,255,255,0.65)" fontFamily="'DM Sans',sans-serif" fontWeight="600"
+                    fill="rgba(255,255,255,0.65)" fontFamily="var(--font-body)" fontWeight="600"
                     initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ delay: 0.9 + i * 0.08 }}
                   >{c.city}</motion.text>
                 </g>
@@ -267,11 +266,11 @@ export default function Corridors() {
               <g transform="translate(450, 358)">
                 <rect x="-4" y="-10" width="250" height="18" rx="5" fill="rgba(0,0,0,0.3)"/>
                 <circle cx="4" cy="0" r="3.5" fill="#00A86B"/>
-                <text x="12" y="4" fontSize="6.5" fill="rgba(255,255,255,0.5)" fontFamily="'DM Sans',sans-serif">East Africa hub</text>
+                <text x="12" y="4" fontSize="6.5" fill="rgba(255,255,255,0.5)" fontFamily="var(--font-body)">East Africa hub</text>
                 <circle cx="90" cy="0" r="3.5" fill="#4DA8DA"/>
-                <text x="98" y="4" fontSize="6.5" fill="rgba(255,255,255,0.5)" fontFamily="'DM Sans',sans-serif">GCC hub</text>
+                <text x="98" y="4" fontSize="6.5" fill="rgba(255,255,255,0.5)" fontFamily="var(--font-body)">GCC hub</text>
                 <circle cx="150" cy="0" r="3" fill="#7ED957"/>
-                <text x="158" y="4" fontSize="6.5" fill="rgba(255,255,255,0.5)" fontFamily="'DM Sans',sans-serif">Live transfer</text>
+                <text x="158" y="4" fontSize="6.5" fill="rgba(255,255,255,0.5)" fontFamily="var(--font-body)">Live transfer</text>
               </g>
 
               {/* LIVE badge */}
@@ -280,7 +279,7 @@ export default function Corridors() {
                 <circle cx="-16" cy="0" r="3" fill="#00A86B">
                   <animate attributeName="opacity" values="1;0.15;1" dur="1.2s" repeatCount="indefinite"/>
                 </circle>
-                <text x="-8" y="4" fontSize="7" fill="#00A86B" fontFamily="'DM Sans',sans-serif" fontWeight="700">LIVE</text>
+                <text x="-8" y="4" fontSize="7" fill="#00A86B" fontFamily="var(--font-body)" fontWeight="700">LIVE</text>
               </g>
             </svg>
           </motion.div>
@@ -291,7 +290,7 @@ export default function Corridors() {
             transition={{ duration: 0.6, delay: 0.2 }}
             style={{ display: "flex", flexDirection: "column", gap: "8px" }}
           >
-            <div style={{ color: "#4DA8DA", fontSize: "10px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "8px", fontFamily: "'DM Sans',sans-serif", textAlign: "right" }}>
+            <div style={{ color: "#4DA8DA", fontSize: "10px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "8px", fontFamily: "var(--font-body)", textAlign: "right" }}>
               GCC
             </div>
             {gcc.map((c, i) => (
@@ -311,7 +310,7 @@ export default function Corridors() {
               >
                 <span style={{ fontSize: "18px" }}>{c.flag}</span>
                 <div>
-                  <div style={{ color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.2 }}>{c.city}</div>
+                  <div style={{ color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-display)", lineHeight: 1.2 }}>{c.city}</div>
                   <div style={{ color: "rgba(255,255,255,0.35)", fontSize: "10px" }}>{c.pop}</div>
                 </div>
               </motion.div>
@@ -335,9 +334,9 @@ export default function Corridors() {
                 fontSize: "32px", fontWeight: "800",
                 background: "linear-gradient(135deg, #00A86B, #7ED957)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-                backgroundClip: "text", fontFamily: "'Plus Jakarta Sans', sans-serif", marginBottom: "6px",
+                backgroundClip: "text", fontFamily: "var(--font-display)", marginBottom: "6px",
               }}>{s.value}</div>
-              <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "13px", fontFamily: "'DM Sans', sans-serif" }}>{s.label}</div>
+              <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "13px", fontFamily: "var(--font-body)" }}>{s.label}</div>
             </div>
           ))}
         </motion.div>

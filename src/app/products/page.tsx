@@ -7,7 +7,7 @@ const s = (i: number) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.55, delay: i * 0.09, ease: [0.25, 0.46, 0.45, 0.94] as any },
+  transition: { duration: 0.55, delay: i * 0.09, ease: [0.25, 0.46, 0.45, 0.94] as const },
 });
 
 const products = [
@@ -91,17 +91,17 @@ export default function ProductsPage() {
   const prod = products.find(p => p.id === active)!;
 
   return (
-    <main style={{ fontFamily: "'DM Sans', sans-serif", overflowX: "hidden" }}>
+    <main style={{ fontFamily: "var(--font-body)", overflowX: "hidden" }}>
 
       {/* HERO */}
       <section style={{ background: "linear-gradient(155deg, #0B3C5D 0%, #082a44 60%, #051d30 100%)", padding: "120px 24px 80px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 1px 1px, rgba(77,168,218,0.07) 1px, transparent 0)`, backgroundSize: "40px 40px", pointerEvents: "none" }}/>
         <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span style={{ display: "inline-block", background: "rgba(0,168,107,0.15)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "20px", fontFamily: "'DM Sans',sans-serif" }}>Products</span>
+            <span style={{ display: "inline-block", background: "rgba(0,168,107,0.15)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "20px", fontFamily: "var(--font-body)" }}>Products</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "clamp(32px,5.5vw,58px)", fontWeight: "800", color: "#fff", lineHeight: 1.12, margin: "0 0 20px" }}>
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px,5.5vw,58px)", fontWeight: "800", color: "#fff", lineHeight: 1.12, margin: "0 0 20px" }}>
             One platform.<br/>
             <span style={{ background: "linear-gradient(135deg, #00A86B, #7ED957)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               Two powerful products.
@@ -109,7 +109,7 @@ export default function ProductsPage() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             style={{ color: "rgba(255,255,255,0.5)", fontSize: "18px", lineHeight: 1.65, maxWidth: "560px", margin: "0 auto" }}>
-            Whether you're sending $50 home to Nairobi or disbursing payroll to 5,000 workers across the GCC — SOKOPAY has a product built exactly for you.
+            Whether you’re sending $50 home to Nairobi or disbursing payroll to 5,000 workers across the GCC — SOKOPAY has a product built exactly for you.
           </motion.p>
         </div>
       </section>
@@ -118,10 +118,10 @@ export default function ProductsPage() {
       <div style={{ background: "#fff", borderBottom: "1px solid rgba(11,60,93,0.08)", padding: "0 24px", position: "sticky", top: 0, zIndex: 20 }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", gap: "0" }}>
           {products.map(p => (
-            <button key={p.id} onClick={() => setActive(p.id as any)}
+            <button key={p.id} onClick={() => setActive(p.id as "personal" | "business")}
               style={{
                 padding: "18px 32px", border: "none", background: "transparent", cursor: "pointer",
-                fontSize: "15px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif",
+                fontSize: "15px", fontWeight: "700", fontFamily: "var(--font-display)",
                 color: active === p.id ? p.color : "#9AAAB8",
                 borderBottom: `3px solid ${active === p.id ? p.color : "transparent"}`,
                 transition: "all 0.2s",
@@ -145,23 +145,23 @@ export default function ProductsPage() {
 
               {/* Left */}
               <div>
-                <span style={{ display: "inline-block", background: `${prod.color}15`, color: prod.color, fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", padding: "5px 14px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans',sans-serif" }}>
+                <span style={{ display: "inline-block", background: `${prod.color}15`, color: prod.color, fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", padding: "5px 14px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)" }}>
                   {prod.tag}
                 </span>
-                <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.15, margin: "0 0 16px" }}>{prod.name}</h2>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.15, margin: "0 0 16px" }}>{prod.name}</h2>
                 <p style={{ color: "#6B7A8D", fontSize: "16px", lineHeight: 1.7, margin: "0 0 28px" }}>{prod.description}</p>
 
                 <div style={{ display: "flex", gap: "20px", marginBottom: "32px" }}>
                   {[prod.stat1, prod.stat2].map(st => (
                     <div key={st.lbl} style={{ padding: "16px 20px", borderRadius: "14px", background: "#fff", border: "1px solid rgba(11,60,93,0.08)", textAlign: "center" }}>
-                      <div style={{ fontSize: "24px", fontWeight: "800", color: prod.color, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{st.val}</div>
-                      <div style={{ fontSize: "12px", color: "#9AAAB8", fontFamily: "'DM Sans',sans-serif" }}>{st.lbl}</div>
+                      <div style={{ fontSize: "24px", fontWeight: "800", color: prod.color, fontFamily: "var(--font-display)" }}>{st.val}</div>
+                      <div style={{ fontSize: "12px", color: "#9AAAB8", fontFamily: "var(--font-body)" }}>{st.lbl}</div>
                     </div>
                   ))}
                 </div>
 
                 <motion.button whileHover={{ scale: 1.03, boxShadow: `0 10px 36px ${prod.color}40` }} whileTap={{ scale: 0.97 }}
-                  style={{ padding: "16px 36px", borderRadius: "14px", background: prod.gradient, color: "#fff", border: "none", fontSize: "16px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", cursor: "pointer" }}>
+                  style={{ padding: "16px 36px", borderRadius: "14px", background: prod.gradient, color: "#fff", border: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", cursor: "pointer" }}>
                   {prod.cta} →
                 </motion.button>
               </div>
@@ -182,7 +182,7 @@ export default function ProductsPage() {
                   style={{ padding: "24px", borderRadius: "18px", background: "#fff", border: "1px solid rgba(11,60,93,0.07)" }}
                 >
                   <div style={{ fontSize: "26px", marginBottom: "12px" }}>{f.icon}</div>
-                  <div style={{ fontSize: "15px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "8px" }}>{f.title}</div>
+                  <div style={{ fontSize: "15px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)", marginBottom: "8px" }}>{f.title}</div>
                   <div style={{ fontSize: "13px", color: "#6B7A8D", lineHeight: 1.65 }}>{f.body}</div>
                 </motion.div>
               ))}
@@ -200,8 +200,8 @@ export default function ProductsPage() {
           >
             <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
               <div>
-                <span style={{ display: "inline-block", background: "rgba(77,168,218,0.15)", color: "#4DA8DA", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans',sans-serif" }}>Developer-first</span>
-                <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "38px", fontWeight: "800", color: "#fff", lineHeight: 1.15, margin: "0 0 16px" }}>
+                <span style={{ display: "inline-block", background: "rgba(77,168,218,0.15)", color: "#4DA8DA", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)" }}>Developer-first</span>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: "800", color: "#fff", lineHeight: 1.15, margin: "0 0 16px" }}>
                   Send money with<br/>3 lines of code
                 </h2>
                 <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "16px", lineHeight: 1.7, margin: "0 0 28px" }}>
@@ -209,7 +209,7 @@ export default function ProductsPage() {
                 </p>
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                   {["Node.js SDK", "Python SDK", "REST API", "Webhooks", "OpenAPI Spec"].map(t => (
-                    <span key={t} style={{ padding: "6px 14px", borderRadius: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.6)", fontSize: "12px", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }}>{t}</span>
+                    <span key={t} style={{ padding: "6px 14px", borderRadius: "8px", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.6)", fontSize: "12px", fontWeight: "600", fontFamily: "var(--font-body)" }}>{t}</span>
                   ))}
                 </div>
               </div>
@@ -218,7 +218,7 @@ export default function ProductsPage() {
               <div style={{ background: "#020d18", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 60px rgba(0,0,0,0.4)" }}>
                 <div style={{ background: "#0a1929", padding: "14px 20px", display: "flex", alignItems: "center", gap: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                   {["#FF5F56","#FFBD2E","#27C93F"].map(c => <div key={c} style={{ width: "10px", height: "10px", borderRadius: "50%", background: c }}/>)}
-                  <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", fontFamily: "'DM Sans',sans-serif", marginLeft: "6px" }}>transfer.js</span>
+                  <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "12px", fontFamily: "var(--font-body)", marginLeft: "6px" }}>transfer.js</span>
                 </div>
                 <pre style={{ margin: 0, padding: "20px", fontSize: "12px", lineHeight: 1.75, color: "#a8d8ea", fontFamily: "monospace", overflowX: "auto", whiteSpace: "pre-wrap" }}>
                   {apiSnippet.split("\n").map((line, i) => {
@@ -235,7 +235,7 @@ export default function ProductsPage() {
 
             {/* Integrations */}
             <div style={{ maxWidth: "1100px", margin: "64px auto 0" }}>
-              <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "12px", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif", textAlign: "center", marginBottom: "28px" }}>
+              <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "12px", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "var(--font-body)", textAlign: "center", marginBottom: "28px" }}>
                 Integrates with your existing stack
               </p>
               <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
@@ -247,7 +247,7 @@ export default function ProductsPage() {
                     style={{ padding: "10px 18px", borderRadius: "12px", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", gap: "8px" }}
                   >
                     <span style={{ fontSize: "16px" }}>{intg.icon}</span>
-                    <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "13px", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }}>{intg.name}</span>
+                    <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "13px", fontWeight: "600", fontFamily: "var(--font-body)" }}>{intg.name}</span>
                   </motion.div>
                 ))}
               </div>
@@ -260,7 +260,7 @@ export default function ProductsPage() {
       <section style={{ background: "#F4F6F8", padding: "80px 24px" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
           <motion.div {...s(0)}>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "36px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: "0 0 16px" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "36px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: "0 0 16px" }}>
               Ready to get started?
             </h2>
             <p style={{ color: "#6B7A8D", fontSize: "16px", lineHeight: 1.7, margin: "0 0 32px" }}>
@@ -268,11 +268,11 @@ export default function ProductsPage() {
             </p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
               <motion.button whileHover={{ scale: 1.04, boxShadow: "0 10px 36px rgba(0,168,107,0.3)" }} whileTap={{ scale: 0.97 }}
-                style={{ padding: "16px 36px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #009e65)", color: "#fff", border: "none", fontSize: "16px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", cursor: "pointer" }}>
+                style={{ padding: "16px 36px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #009e65)", color: "#fff", border: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", cursor: "pointer" }}>
                 Create Free Account →
               </motion.button>
               <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-                style={{ padding: "16px 36px", borderRadius: "14px", background: "#fff", color: "#0B3C5D", border: "1.5px solid rgba(11,60,93,0.15)", fontSize: "16px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", cursor: "pointer" }}>
+                style={{ padding: "16px 36px", borderRadius: "14px", background: "#fff", color: "#0B3C5D", border: "1.5px solid rgba(11,60,93,0.15)", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", cursor: "pointer" }}>
                 View API Docs
               </motion.button>
             </div>

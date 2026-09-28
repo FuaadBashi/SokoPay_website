@@ -16,7 +16,7 @@ export default function DashboardLayout({
         display: "flex",
         minHeight: "100vh",
         background: "#F4F6F8",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-body)",
       }}
     >
       <DashboardSidebar />

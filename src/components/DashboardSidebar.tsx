@@ -145,7 +145,7 @@ export default function DashboardSidebar() {
             justifyContent: "center",
             flexShrink: 0,
           }}>
-            <span style={{ color: "#fff", fontSize: "16px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>S</span>
+            <span style={{ color: "#fff", fontSize: "16px", fontWeight: "800", fontFamily: "var(--font-display)" }}>S</span>
           </div>
           <AnimatePresence>
             {!collapsed && (
@@ -158,7 +158,7 @@ export default function DashboardSidebar() {
                   color: "#fff",
                   fontSize: "17px",
                   fontWeight: "800",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-display)",
                   letterSpacing: "0.02em",
                   whiteSpace: "nowrap",
                   overflow: "hidden",
@@ -261,7 +261,7 @@ export default function DashboardSidebar() {
                       style={{
                         fontSize: "14px",
                         fontWeight: active ? "700" : "500",
-                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontFamily: "var(--font-display)",
                         whiteSpace: "nowrap",
                         flex: 1,
                       }}
@@ -283,7 +283,7 @@ export default function DashboardSidebar() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                   }}>
                     {item.badge}
                   </span>
@@ -309,10 +309,10 @@ export default function DashboardSidebar() {
               borderRadius: "14px",
               padding: "16px",
             }}>
-              <div style={{ fontSize: "12px", fontWeight: "700", color: "#00A86B", marginBottom: "4px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <div style={{ fontSize: "12px", fontWeight: "700", color: "#00A86B", marginBottom: "4px", fontFamily: "var(--font-display)" }}>
                 Upgrade to Plus
               </div>
-              <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif", lineHeight: 1.5, marginBottom: "12px" }}>
+              <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-body)", lineHeight: 1.5, marginBottom: "12px" }}>
                 Better rates, scheduled transfers & more.
               </div>
               <button style={{
@@ -325,7 +325,7 @@ export default function DashboardSidebar() {
                 fontSize: "12px",
                 fontWeight: "700",
                 cursor: "pointer",
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-display)",
               }}>
                 Upgrade →
               </button>
@@ -364,7 +364,7 @@ export default function DashboardSidebar() {
                 {!collapsed && (
                   <motion.span
                     initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                    style={{ fontSize: "13px", fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: "500", whiteSpace: "nowrap" }}
+                    style={{ fontSize: "13px", fontFamily: "var(--font-display)", fontWeight: "500", whiteSpace: "nowrap" }}
                   >
                     {item.label}
                   </motion.span>

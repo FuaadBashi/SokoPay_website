@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const products = [
   {
@@ -100,7 +100,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
         textTransform: "uppercase",
         padding: "5px 14px",
         borderRadius: "100px",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-body)",
       }}>
         {product.tag}
       </div>
@@ -159,7 +159,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
         }}>
           <div>
             <h3 style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-display)",
               fontSize: "26px",
               fontWeight: "800",
               color: "#0B3C5D",
@@ -172,7 +172,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
               color: product.color,
               fontSize: "14px",
               fontWeight: "600",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-body)",
               margin: 0,
             }}>
               {product.subtitle}
@@ -187,7 +187,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
             <div style={{
               fontSize: "11px",
               color: product.color,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-body)",
               fontWeight: "600",
               letterSpacing: "0.04em",
               whiteSpace: "nowrap",
@@ -200,7 +200,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
         <p style={{
           color: "#6B7A8D",
           fontSize: "15px",
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "var(--font-body)",
           lineHeight: 1.65,
           margin: "16px 0 24px",
         }}>
@@ -226,7 +226,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
                 gap: "8px",
                 fontSize: "13px",
                 color: "#374a60",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "var(--font-body)",
                 lineHeight: 1.4,
               }}
             >
@@ -249,7 +249,7 @@ function ProductCard({ product, index, isInView }: { product: typeof products[0]
             padding: "16px 24px",
             fontSize: "16px",
             fontWeight: "700",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-display)",
             cursor: "pointer",
             letterSpacing: "0.01em",
           }}
@@ -317,12 +317,12 @@ export default function Products() {
             padding: "6px 16px",
             borderRadius: "100px",
             marginBottom: "16px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
           }}>
             Our Products
           </span>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(32px, 5vw, 52px)",
             fontWeight: "800",
             color: "#0B3C5D",
@@ -342,7 +342,7 @@ export default function Products() {
           <p style={{
             color: "#6B7A8D",
             fontSize: "18px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
             maxWidth: "480px",
             margin: "0 auto",
             lineHeight: 1.6,

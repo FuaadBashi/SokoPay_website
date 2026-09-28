@@ -88,7 +88,7 @@ function BarChart() {
                 transformOrigin: "bottom",
               }}
             />
-            <span style={{ fontSize: "9px", color: isLast ? "#00A86B" : "#9AAAB8", fontFamily: "'DM Sans',sans-serif", fontWeight: isLast ? "700" : "400" }}>
+            <span style={{ fontSize: "9px", color: isLast ? "#00A86B" : "#9AAAB8", fontFamily: "var(--font-body)", fontWeight: isLast ? "700" : "400" }}>
               {months[i]}
             </span>
           </div>
@@ -107,7 +107,7 @@ function StatusBadge({ status }: { status: string }) {
   };
   const s = map[status] || map.completed;
   return (
-    <span style={{ fontSize: "11px", fontWeight: "700", padding: "3px 9px", borderRadius: "100px", background: s.bg, color: s.color, fontFamily: "'DM Sans',sans-serif", display: "inline-flex", alignItems: "center", gap: "5px" }}>
+    <span style={{ fontSize: "11px", fontWeight: "700", padding: "3px 9px", borderRadius: "100px", background: s.bg, color: s.color, fontFamily: "var(--font-body)", display: "inline-flex", alignItems: "center", gap: "5px" }}>
       {status === "processing" && (
         <motion.span animate={{ opacity: [1,0.2,1] }} transition={{ duration: 1, repeat: Infinity }}
           style={{ display: "inline-block", width: "5px", height: "5px", borderRadius: "50%", background: s.color }}
@@ -171,7 +171,7 @@ export default function DashboardPage() {
   const s = (i: number) => ({
     initial: { opacity: 0, y: 22 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.48, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] as any },
+    transition: { duration: 0.48, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] as const },
   });
 
   return (
@@ -190,10 +190,10 @@ export default function DashboardPage() {
         }}
       >
         <div>
-          <div style={{ fontSize: "18px", fontWeight: "800", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.2 }}>
+          <div style={{ fontSize: "18px", fontWeight: "800", color: "#0B3C5D", fontFamily: "var(--font-display)", lineHeight: 1.2 }}>
             Good morning, Hassan 👋
           </div>
-          <div style={{ fontSize: "12px", color: "#9AAAB8", fontFamily: "'DM Sans',sans-serif" }}>
+          <div style={{ fontSize: "12px", color: "#9AAAB8", fontFamily: "var(--font-body)" }}>
             {new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           </div>
         </div>
@@ -222,7 +222,7 @@ export default function DashboardPage() {
                   style={{ position: "absolute", top: "calc(100% + 10px)", right: 0, width: "300px", background: "#fff", borderRadius: "16px", boxShadow: "0 20px 60px rgba(11,60,93,0.18)", border: "1px solid rgba(11,60,93,0.07)", overflow: "hidden", zIndex: 50 }}
                 >
                   <div style={{ padding: "14px 16px", borderBottom: "1px solid rgba(11,60,93,0.06)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Notifications</span>
+                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>Notifications</span>
                     <span style={{ fontSize: "11px", color: "#00A86B", fontWeight: "700", cursor: "pointer" }}>Mark all read</span>
                   </div>
                   {notifications.map((n, i) => (
@@ -232,7 +232,7 @@ export default function DashboardPage() {
                     >
                       <div style={{ width: "32px", height: "32px", borderRadius: "9px", background: `${n.color}14`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", flexShrink: 0 }}>{n.icon}</div>
                       <div>
-                        <div style={{ fontSize: "13px", color: "#374a60", fontFamily: "'DM Sans',sans-serif", lineHeight: 1.4 }}>{n.text}</div>
+                        <div style={{ fontSize: "13px", color: "#374a60", fontFamily: "var(--font-body)", lineHeight: 1.4 }}>{n.text}</div>
                         <div style={{ fontSize: "11px", color: "#9AAAB8", marginTop: "2px" }}>{n.time}</div>
                       </div>
                     </motion.div>
@@ -247,7 +247,7 @@ export default function DashboardPage() {
             <img src="https://i.pravatar.cc/40?img=12" alt="Hassan"
               style={{ width: "38px", height: "38px", borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(0,168,107,0.35)" }}/>
             <div style={{ lineHeight: 1.2 }}>
-              <div style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Hassan A.</div>
+              <div style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>Hassan A.</div>
               <div style={{ fontSize: "11px", color: "#9AAAB8" }}>Personal ✦</div>
             </div>
           </motion.div>
@@ -263,8 +263,8 @@ export default function DashboardPage() {
         >
           {[...fxRates, ...fxRates].map((fx, i) => (
             <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "0 28px", borderRight: "1px solid rgba(255,255,255,0.07)" }}>
-              <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px", fontFamily: "'DM Sans',sans-serif", fontWeight: "600", letterSpacing: "0.06em" }}>{fx.pair}</span>
-              <span style={{ color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{fx.rate}</span>
+              <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px", fontFamily: "var(--font-body)", fontWeight: "600", letterSpacing: "0.06em" }}>{fx.pair}</span>
+              <span style={{ color: "#fff", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-display)" }}>{fx.rate}</span>
               <span style={{ fontSize: "11px", color: fx.pos ? "#7ED957" : "#FF6B6B", fontWeight: "600" }}>
                 {fx.pos ? "▲" : "▼"} {fx.change}
               </span>
@@ -274,7 +274,7 @@ export default function DashboardPage() {
         <div style={{ position: "absolute", right: 0, background: "#0B3C5D", padding: "0 14px", height: "36px", display: "flex", alignItems: "center", gap: "6px", borderLeft: "1px solid rgba(255,255,255,0.1)" }}>
           <motion.div animate={{ opacity: [1,0.15,1] }} transition={{ duration: 1.2, repeat: Infinity }}
             style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#00A86B" }}/>
-          <span style={{ color: "#00A86B", fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", fontFamily: "'DM Sans',sans-serif" }}>LIVE</span>
+          <span style={{ color: "#00A86B", fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", fontFamily: "var(--font-body)" }}>LIVE</span>
         </div>
       </div>
 
@@ -310,7 +310,7 @@ export default function DashboardPage() {
             <div style={{ position: "relative" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "24px" }}>
                 <div>
-                  <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif", marginBottom: "6px" }}>Total Balance</div>
+                  <div style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "var(--font-body)", marginBottom: "6px" }}>Total Balance</div>
                   <div style={{ display: "flex", alignItems: "baseline", gap: "6px" }}>
                     <AnimatePresence mode="wait">
                       <motion.div key={walletIdx}
@@ -318,12 +318,12 @@ export default function DashboardPage() {
                         transition={{ duration: 0.28 }}
                         style={{ display: "flex", alignItems: "baseline", gap: "4px" }}
                       >
-                        <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "22px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: "700" }}>
+                        <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "22px", fontFamily: "var(--font-display)", fontWeight: "700" }}>
                           {activeWallet.symbol}
                         </span>
                         <span style={{
                           fontSize: "50px", fontWeight: "800", color: "#fff",
-                          fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1, letterSpacing: "-0.02em",
+                          fontFamily: "var(--font-display)", lineHeight: 1, letterSpacing: "-0.02em",
                           filter: balanceVisible ? "none" : "blur(14px)",
                           transition: "filter 0.3s",
                           userSelect: balanceVisible ? "auto" : "none",
@@ -363,7 +363,7 @@ export default function DashboardPage() {
                         background: walletIdx===i ? "rgba(0,168,107,0.18)" : "rgba(255,255,255,0.05)",
                         color: walletIdx===i ? "#7ED957" : "rgba(255,255,255,0.4)",
                         fontSize: "12px", fontWeight: "700", cursor: "pointer",
-                        fontFamily: "'Plus Jakarta Sans',sans-serif", transition: "all 0.15s",
+                        fontFamily: "var(--font-display)", transition: "all 0.15s",
                       }}
                     >{w.flag} {w.currency}</motion.button>
                   ))}
@@ -373,12 +373,12 @@ export default function DashboardPage() {
               {/* Sparkline + monthly avg */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
                 <div>
-                  <div style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px", marginBottom: "6px", fontFamily: "'DM Sans',sans-serif" }}>Sent this year</div>
+                  <div style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px", marginBottom: "6px", fontFamily: "var(--font-body)" }}>Sent this year</div>
                   <Sparkline data={spendLine} color="#00A86B"/>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px", marginBottom: "4px", fontFamily: "'DM Sans',sans-serif" }}>Monthly avg</div>
-                  <div style={{ color: "#fff", fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+                  <div style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px", marginBottom: "4px", fontFamily: "var(--font-body)" }}>Monthly avg</div>
+                  <div style={{ color: "#fff", fontSize: "22px", fontWeight: "800", fontFamily: "var(--font-display)" }}>
                     <Counter to={780} decimals={0} prefix="$"/>
                   </div>
                 </div>
@@ -389,7 +389,7 @@ export default function DashboardPage() {
           {/* QUICK ACTIONS + MINI STATS */}
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <motion.div {...s(1)} style={{ background: "#fff", borderRadius: "20px", padding: "20px", boxShadow: "0 2px 16px rgba(11,60,93,0.06)", border: "1px solid rgba(11,60,93,0.06)" }}>
-              <div style={{ fontSize: "11px", fontWeight: "700", color: "#9AAAB8", letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif", marginBottom: "14px" }}>Quick Actions</div>
+              <div style={{ fontSize: "11px", fontWeight: "700", color: "#9AAAB8", letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "var(--font-body)", marginBottom: "14px" }}>Quick Actions</div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
                 {quickActions.map((a, i) => (
                   <Link key={a.label} href={a.href} style={{ textDecoration: "none" }}>
@@ -401,7 +401,7 @@ export default function DashboardPage() {
                       style={{ padding: "14px 12px", borderRadius: "14px", background: a.bg, border: `1px solid ${a.color}22`, display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", cursor: "pointer" }}
                     >
                       <span style={{ fontSize: "22px", color: a.color, fontWeight: "700" }}>{a.icon}</span>
-                      <span style={{ fontSize: "12px", fontWeight: "700", color: "#374a60", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{a.label}</span>
+                      <span style={{ fontSize: "12px", fontWeight: "700", color: "#374a60", fontFamily: "var(--font-display)" }}>{a.label}</span>
                     </motion.div>
                   </Link>
                 ))}
@@ -423,10 +423,10 @@ export default function DashboardPage() {
                   style={{ background: "#fff", borderRadius: "14px", padding: "14px", boxShadow: "0 2px 12px rgba(11,60,93,0.05)", border: "1px solid rgba(11,60,93,0.06)" }}
                 >
                   <div style={{ fontSize: "16px", marginBottom: "4px" }}>{s2.icon}</div>
-                  <div style={{ fontSize: "18px", fontWeight: "800", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1 }}>
+                  <div style={{ fontSize: "18px", fontWeight: "800", color: "#0B3C5D", fontFamily: "var(--font-display)", lineHeight: 1 }}>
                     <Counter to={s2.value} decimals={s2.decimals} prefix={s2.prefix}/>
                   </div>
-                  <div style={{ fontSize: "11px", color: "#9AAAB8", fontFamily: "'DM Sans',sans-serif", marginTop: "3px" }}>{s2.label}</div>
+                  <div style={{ fontSize: "11px", color: "#9AAAB8", fontFamily: "var(--font-body)", marginTop: "3px" }}>{s2.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -439,9 +439,9 @@ export default function DashboardPage() {
           {/* RECENT TRANSFERS */}
           <motion.div {...s(3)} style={{ background: "#fff", borderRadius: "20px", overflow: "hidden", boxShadow: "0 2px 16px rgba(11,60,93,0.06)", border: "1px solid rgba(11,60,93,0.06)" }}>
             <div style={{ padding: "18px 22px 14px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(11,60,93,0.06)" }}>
-              <div style={{ fontSize: "14px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Recent Transfers</div>
+              <div style={{ fontSize: "14px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>Recent Transfers</div>
               <Link href="/dashboard/transactions" style={{ textDecoration: "none" }}>
-                <motion.span whileHover={{ color: "#00A86B", x: 2 }} style={{ fontSize: "12px", fontWeight: "600", color: "#9AAAB8", fontFamily: "'DM Sans',sans-serif", cursor: "pointer", display: "inline-block", transition: "color 0.2s" }}>
+                <motion.span whileHover={{ color: "#00A86B", x: 2 }} style={{ fontSize: "12px", fontWeight: "600", color: "#9AAAB8", fontFamily: "var(--font-body)", cursor: "pointer", display: "inline-block", transition: "color 0.2s" }}>
                   View all →
                 </motion.span>
               </Link>
@@ -464,11 +464,11 @@ export default function DashboardPage() {
                   <span style={{ position: "absolute", bottom: "-2px", right: "-2px", fontSize: "11px" }}>{tx.flag}</span>
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: "600", color: "#0B3C5D", fontSize: "13px", fontFamily: "'Plus Jakarta Sans',sans-serif", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{tx.name}</div>
+                  <div style={{ fontWeight: "600", color: "#0B3C5D", fontSize: "13px", fontFamily: "var(--font-display)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{tx.name}</div>
                   <div style={{ color: "#9AAAB8", fontSize: "11px" }}>{tx.method} · {tx.date}</div>
                 </div>
                 <div style={{ textAlign: "right", flexShrink: 0 }}>
-                  <div style={{ fontWeight: "800", fontSize: "14px", color: tx.direction==="received" ? "#00A86B" : "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+                  <div style={{ fontWeight: "800", fontSize: "14px", color: tx.direction==="received" ? "#00A86B" : "#0B3C5D", fontFamily: "var(--font-display)" }}>
                     {tx.direction==="received" ? "+" : ""}{tx.amount < 0 ? "-" : ""}${Math.abs(tx.amount).toLocaleString()}
                   </div>
                   <StatusBadge status={tx.status}/>
@@ -481,8 +481,8 @@ export default function DashboardPage() {
           <motion.div {...s(4)} style={{ background: "#fff", borderRadius: "20px", padding: "20px 22px", boxShadow: "0 2px 16px rgba(11,60,93,0.06)", border: "1px solid rgba(11,60,93,0.06)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
               <div>
-                <div style={{ fontSize: "14px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "2px" }}>Monthly Sent</div>
-                <div style={{ fontSize: "24px", fontWeight: "800", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+                <div style={{ fontSize: "14px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)", marginBottom: "2px" }}>Monthly Sent</div>
+                <div style={{ fontSize: "24px", fontWeight: "800", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>
                   <Counter to={9380} decimals={0} prefix="$"/>
                 </div>
                 <div style={{ fontSize: "12px", color: "#00A86B", fontWeight: "600", marginTop: "2px" }}>▲ 28.4% vs last year</div>
@@ -503,13 +503,13 @@ export default function DashboardPage() {
                 <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
                   style={{ fontSize: "22px" }}>⚡</motion.div>
                 <div>
-                  <div style={{ fontSize: "12px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "3px" }}>Best rate now</div>
-                  <div style={{ fontSize: "20px", fontWeight: "800", color: "#00A86B", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "3px" }}>
+                  <div style={{ fontSize: "12px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)", marginBottom: "3px" }}>Best rate now</div>
+                  <div style={{ fontSize: "20px", fontWeight: "800", color: "#00A86B", fontFamily: "var(--font-display)", marginBottom: "3px" }}>
                     1 USD = 132.45 KES
                   </div>
                   <div style={{ fontSize: "11px", color: "#6B7A8D", marginBottom: "12px" }}>▲ 0.32 from yesterday</div>
                   <motion.button whileHover={{ scale: 1.04, boxShadow: "0 6px 20px rgba(0,168,107,0.3)" }} whileTap={{ scale: 0.96 }}
-                    style={{ background: "linear-gradient(135deg, #00A86B, #009e65)", color: "#fff", border: "none", borderRadius: "10px", padding: "9px 18px", fontSize: "12px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", cursor: "pointer" }}>
+                    style={{ background: "linear-gradient(135deg, #00A86B, #009e65)", color: "#fff", border: "none", borderRadius: "10px", padding: "9px 18px", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-display)", cursor: "pointer" }}>
                     Send Now →
                   </motion.button>
                 </div>
@@ -519,7 +519,7 @@ export default function DashboardPage() {
             {/* Scheduled */}
             <motion.div {...s(6)} style={{ background: "#fff", borderRadius: "18px", overflow: "hidden", boxShadow: "0 2px 12px rgba(11,60,93,0.05)", border: "1px solid rgba(11,60,93,0.06)" }}>
               <div style={{ padding: "14px 16px 10px", display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(11,60,93,0.05)" }}>
-                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Scheduled</div>
+                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>Scheduled</div>
                 <span style={{ fontSize: "12px", color: "#00A86B", fontWeight: "600", cursor: "pointer" }}>+ Add</span>
               </div>
               {[
@@ -536,10 +536,10 @@ export default function DashboardPage() {
                     <span style={{ position: "absolute", bottom: "-2px", right: "-2px", fontSize: "10px" }}>{sch.flag}</span>
                   </div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: "600", color: "#0B3C5D", fontSize: "12px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{sch.name}</div>
+                    <div style={{ fontWeight: "600", color: "#0B3C5D", fontSize: "12px", fontFamily: "var(--font-display)" }}>{sch.name}</div>
                     <div style={{ fontSize: "10px", color: "#9AAAB8" }}>{sch.repeat} · {sch.date}</div>
                   </div>
-                  <div style={{ fontWeight: "700", fontSize: "13px", color: "#374a60", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>${sch.amount}</div>
+                  <div style={{ fontWeight: "700", fontSize: "13px", color: "#374a60", fontFamily: "var(--font-display)" }}>${sch.amount}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -553,11 +553,11 @@ export default function DashboardPage() {
                 🛡️
               </motion.div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "12px", fontWeight: "700", color: "#fff", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "2px" }}>Verify to unlock more</div>
-                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.45)", fontFamily: "'DM Sans',sans-serif" }}>Higher limits & business features</div>
+                <div style={{ fontSize: "12px", fontWeight: "700", color: "#fff", fontFamily: "var(--font-display)", marginBottom: "2px" }}>Verify to unlock more</div>
+                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-body)" }}>Higher limits & business features</div>
               </div>
               <motion.button whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}
-                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "9px", padding: "7px 13px", color: "#fff", fontSize: "11px", fontWeight: "700", cursor: "pointer", fontFamily: "'Plus Jakarta Sans',sans-serif", whiteSpace: "nowrap" }}>
+                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: "9px", padding: "7px 13px", color: "#fff", fontSize: "11px", fontWeight: "700", cursor: "pointer", fontFamily: "var(--font-display)", whiteSpace: "nowrap" }}>
                 Verify →
               </motion.button>
             </motion.div>

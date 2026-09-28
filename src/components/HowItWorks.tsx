@@ -53,25 +53,6 @@ const steps = [
   },
 ];
 
-const connector = (
-  <motion.div
-    style={{
-      position: "absolute",
-      top: "50%",
-      left: "100%",
-      width: "80px",
-      height: "2px",
-      background: "linear-gradient(90deg, rgba(0,168,107,0.6), rgba(77,168,218,0.6))",
-      transformOrigin: "left center",
-      zIndex: 0,
-    }}
-    initial={{ scaleX: 0 }}
-    whileInView={{ scaleX: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, delay: 0.8 }}
-  />
-);
-
 export default function HowItWorks() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -117,12 +98,12 @@ export default function HowItWorks() {
             padding: "6px 16px",
             borderRadius: "100px",
             marginBottom: "16px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
           }}>
             Simple Process
           </span>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(32px, 5vw, 52px)",
             fontWeight: "800",
             color: "#0B3C5D",
@@ -142,7 +123,7 @@ export default function HowItWorks() {
           <p style={{
             color: "#6B7A8D",
             fontSize: "18px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
             maxWidth: "500px",
             margin: "0 auto",
             lineHeight: 1.6,
@@ -204,7 +185,7 @@ export default function HowItWorks() {
                   color: "#fff",
                   fontSize: "13px",
                   fontWeight: "800",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-display)",
                   padding: "4px 10px",
                   borderRadius: "8px",
                   letterSpacing: "0.04em",
@@ -230,7 +211,7 @@ export default function HowItWorks() {
                 </div>
 
                 <h3 style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-display)",
                   fontSize: "22px",
                   fontWeight: "700",
                   color: "#0B3C5D",
@@ -243,7 +224,7 @@ export default function HowItWorks() {
                 <p style={{
                   color: "#6B7A8D",
                   fontSize: "15px",
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "var(--font-body)",
                   lineHeight: 1.65,
                   margin: 0,
                 }}>
@@ -294,7 +275,7 @@ export default function HowItWorks() {
               padding: "16px 40px",
               fontSize: "16px",
               fontWeight: "700",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-display)",
               cursor: "pointer",
               letterSpacing: "0.01em",
             }}

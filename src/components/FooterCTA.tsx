@@ -74,13 +74,13 @@ export function CTASection() {
                 transition={{ duration: 1.2, repeat: Infinity }}
                 style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#00A86B" }}
               />
-              <span style={{ color: "#00A86B", fontSize: "12px", fontWeight: "700", fontFamily: "'DM Sans',sans-serif", letterSpacing: "0.06em" }}>
+              <span style={{ color: "#00A86B", fontSize: "12px", fontWeight: "700", fontFamily: "var(--font-body)", letterSpacing: "0.06em" }}>
                 Processing transfers right now
               </span>
             </motion.div>
 
             <h2 style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "var(--font-display)",
               fontSize: "clamp(30px, 5vw, 54px)",
               fontWeight: "800",
               color: "#fff",
@@ -101,7 +101,7 @@ export function CTASection() {
             <p style={{
               color: "rgba(255,255,255,0.6)",
               fontSize: "18px",
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "var(--font-body)",
               maxWidth: "500px",
               margin: "0 auto 40px",
               lineHeight: 1.65,
@@ -121,7 +121,7 @@ export function CTASection() {
                   padding: "17px 40px",
                   fontSize: "16px",
                   fontWeight: "700",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-display)",
                   cursor: "pointer",
                   letterSpacing: "0.01em",
                 }}
@@ -139,7 +139,7 @@ export function CTASection() {
                   padding: "17px 40px",
                   fontSize: "16px",
                   fontWeight: "700",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-display)",
                   cursor: "pointer",
                   letterSpacing: "0.01em",
                   transition: "background 0.2s",
@@ -165,7 +165,7 @@ export function CTASection() {
               ].map(b => (
                 <div key={b.label} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <span style={{ fontSize: "15px" }}>{b.icon}</span>
-                  <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", fontFamily: "'DM Sans',sans-serif" }}>{b.label}</span>
+                  <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", fontFamily: "var(--font-body)" }}>{b.label}</span>
                 </div>
               ))}
             </div>
@@ -226,14 +226,14 @@ export default function Footer() {
                 background: "linear-gradient(135deg, #00A86B, #7ED957)",
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}>
-                <span style={{ color: "#fff", fontSize: "17px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>S</span>
+                <span style={{ color: "#fff", fontSize: "17px", fontWeight: "800", fontFamily: "var(--font-display)" }}>S</span>
               </div>
-              <span style={{ color: "#fff", fontSize: "20px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "0.02em" }}>
+              <span style={{ color: "#fff", fontSize: "20px", fontWeight: "800", fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
                 SOKO<span style={{ color: "#00A86B" }}>PAY</span>
               </span>
             </div>
 
-            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px", fontFamily: "'DM Sans',sans-serif", lineHeight: 1.7, marginBottom: "24px" }}>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px", fontFamily: "var(--font-body)", lineHeight: 1.7, marginBottom: "24px" }}>
               Fast, low-cost payments connecting East Africa and the GCC. Move money like it belongs in the 21st century.
             </p>
 
@@ -276,7 +276,7 @@ export default function Footer() {
                     color: "rgba(255,255,255,0.7)",
                     fontSize: "12px",
                     fontWeight: "600",
-                    fontFamily: "'DM Sans',sans-serif",
+                    fontFamily: "var(--font-body)",
                     textDecoration: "none",
                     display: "flex",
                     alignItems: "center",
@@ -305,7 +305,7 @@ export default function Footer() {
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
-                  fontFamily: "'Plus Jakarta Sans',sans-serif",
+                  fontFamily: "var(--font-display)",
                 }}>
                   {section}
                 </div>
@@ -318,7 +318,7 @@ export default function Footer() {
                       style={{
                         color: "rgba(255,255,255,0.4)",
                         fontSize: "13px",
-                        fontFamily: "'DM Sans',sans-serif",
+                        fontFamily: "var(--font-body)",
                         textDecoration: "none",
                         transition: "color 0.2s",
                         display: "block",
@@ -357,7 +357,7 @@ export default function Footer() {
                 border: "1px solid rgba(255,255,255,0.07)",
                 color: "rgba(255,255,255,0.35)",
                 fontSize: "11px",
-                fontFamily: "'DM Sans',sans-serif",
+                fontFamily: "var(--font-body)",
                 letterSpacing: "0.02em",
               }}
             >
@@ -376,7 +376,7 @@ export default function Footer() {
           paddingTop: "28px",
           borderTop: "1px solid rgba(255,255,255,0.06)",
         }}>
-          <span style={{ color: "rgba(255,255,255,0.25)", fontSize: "13px", fontFamily: "'DM Sans',sans-serif" }}>
+          <span style={{ color: "rgba(255,255,255,0.25)", fontSize: "13px", fontFamily: "var(--font-body)" }}>
             © {new Date().getFullYear()} SOKOPAY Ltd. All rights reserved.
           </span>
           <div style={{ display: "flex", gap: "24px" }}>
@@ -385,7 +385,7 @@ export default function Footer() {
                 key={link}
                 href="#"
                 whileHover={{ color: "#00A86B" }}
-                style={{ color: "rgba(255,255,255,0.25)", fontSize: "12px", fontFamily: "'DM Sans',sans-serif", textDecoration: "none", transition: "color 0.2s" }}
+                style={{ color: "rgba(255,255,255,0.25)", fontSize: "12px", fontFamily: "var(--font-body)", textDecoration: "none", transition: "color 0.2s" }}
               >
                 {link}
               </motion.a>

@@ -51,17 +51,17 @@ function TransferCard({ t, delay }: { t: typeof transfers[0]; delay: number }) {
       <img src={t.avatar} alt="" style={{ width: "36px", height: "36px", borderRadius: "50%", objectFit: "cover" }} />
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "3px" }}>
-          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "13px", fontFamily: "'DM Sans',sans-serif" }}>{t.from}</span>
+          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "13px", fontFamily: "var(--font-body)" }}>{t.from}</span>
           <span style={{ color: "#00A86B", fontSize: "12px" }}>→</span>
-          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "13px", fontFamily: "'DM Sans',sans-serif" }}>{t.to}</span>
+          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "13px", fontFamily: "var(--font-body)" }}>{t.to}</span>
         </div>
-        <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "'DM Sans',sans-serif" }}>{t.time}</div>
+        <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-body)" }}>{t.time}</div>
       </div>
       <div style={{
         color: "#7ED957",
         fontSize: "15px",
         fontWeight: "700",
-        fontFamily: "'Plus Jakarta Sans',sans-serif",
+        fontFamily: "var(--font-display)",
       }}>{t.amount}</div>
     </motion.div>
   );
@@ -107,7 +107,7 @@ export default function LoginPage() {
     <div style={{
       display: "flex",
       minHeight: "100vh",
-      fontFamily: "'DM Sans', sans-serif",
+      fontFamily: "var(--font-body)",
     }}>
 
       {/* ── LEFT PANEL — Live feed ──────────────────────────────────────────── */}
@@ -141,9 +141,9 @@ export default function LoginPage() {
             background: "linear-gradient(135deg, #00A86B, #7ED957)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
-            <span style={{ color: "#fff", fontSize: "18px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>S</span>
+            <span style={{ color: "#fff", fontSize: "18px", fontWeight: "800", fontFamily: "var(--font-display)" }}>S</span>
           </div>
-          <span style={{ color: "#fff", fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "0.02em" }}>
+          <span style={{ color: "#fff", fontSize: "22px", fontWeight: "800", fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
             SOKO<span style={{ color: "#00A86B" }}>PAY</span>
           </span>
         </div>
@@ -151,7 +151,7 @@ export default function LoginPage() {
         {/* Headline */}
         <div style={{ position: "relative", marginBottom: "40px" }}>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans',sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "30px",
             fontWeight: "800",
             color: "#fff",
@@ -201,7 +201,7 @@ export default function LoginPage() {
         }}>
           {[["$2B+", "Processed"], ["50+", "Countries"], ["200ms", "Avg speed"]].map(([val, lbl]) => (
             <div key={lbl}>
-              <div style={{ color: "#fff", fontSize: "18px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{val}</div>
+              <div style={{ color: "#fff", fontSize: "18px", fontWeight: "700", fontFamily: "var(--font-display)" }}>{val}</div>
               <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px" }}>{lbl}</div>
             </div>
           ))}
@@ -231,7 +231,7 @@ export default function LoginPage() {
                 transition={{ duration: 0.4 }}
               >
                 <h1 style={{
-                  fontFamily: "'Plus Jakarta Sans',sans-serif",
+                  fontFamily: "var(--font-display)",
                   fontSize: "30px",
                   fontWeight: "800",
                   color: "#0B3C5D",
@@ -265,7 +265,7 @@ export default function LoginPage() {
                         fontSize: "13px",
                         fontWeight: "600",
                         color: "#374a60",
-                        fontFamily: "'DM Sans',sans-serif",
+                        fontFamily: "var(--font-body)",
                       }}
                     >
                       <img src={b.icon} alt="" style={{ width: "18px", height: "18px" }} />
@@ -301,7 +301,7 @@ export default function LoginPage() {
                       fontSize: "15px",
                       color: "#0B3C5D",
                       outline: "none",
-                      fontFamily: "'DM Sans',sans-serif",
+                      fontFamily: "var(--font-body)",
                       boxSizing: "border-box",
                     }}
                   />
@@ -327,7 +327,7 @@ export default function LoginPage() {
                         fontSize: "15px",
                         color: "#0B3C5D",
                         outline: "none",
-                        fontFamily: "'DM Sans',sans-serif",
+                        fontFamily: "var(--font-body)",
                         boxSizing: "border-box",
                       }}
                     />
@@ -371,7 +371,7 @@ export default function LoginPage() {
                     >
                       {remember && <span style={{ color: "#fff", fontSize: "11px" }}>✓</span>}
                     </div>
-                    <span style={{ fontSize: "13px", color: "#6B7A8D", fontFamily: "'DM Sans',sans-serif" }}>Remember me</span>
+                    <span style={{ fontSize: "13px", color: "#6B7A8D", fontFamily: "var(--font-body)" }}>Remember me</span>
                   </label>
                   <button
                     onClick={() => setView("forgot")}
@@ -382,7 +382,7 @@ export default function LoginPage() {
                       fontSize: "13px",
                       fontWeight: "600",
                       cursor: "pointer",
-                      fontFamily: "'DM Sans',sans-serif",
+                      fontFamily: "var(--font-body)",
                     }}
                   >
                     Forgot password?
@@ -402,7 +402,7 @@ export default function LoginPage() {
                     border: "none",
                     fontSize: "16px",
                     fontWeight: "700",
-                    fontFamily: "'Plus Jakarta Sans',sans-serif",
+                    fontFamily: "var(--font-display)",
                     cursor: "pointer",
                     marginBottom: "20px",
                   }}
@@ -411,7 +411,7 @@ export default function LoginPage() {
                 </motion.button>
 
                 <p style={{ textAlign: "center", color: "#9AAAB8", fontSize: "14px" }}>
-                  Don't have an account?{" "}
+                  Don’t have an account?{" "}
                   <a href="#" style={{ color: "#00A86B", fontWeight: "600", textDecoration: "none" }}>Create one</a>
                 </p>
               </motion.div>
@@ -428,15 +428,15 @@ export default function LoginPage() {
               >
                 <button
                   onClick={() => setView("login")}
-                  style={{ background: "none", border: "none", cursor: "pointer", color: "#6B7A8D", fontSize: "14px", marginBottom: "24px", padding: 0, fontFamily: "'DM Sans',sans-serif" }}
+                  style={{ background: "none", border: "none", cursor: "pointer", color: "#6B7A8D", fontSize: "14px", marginBottom: "24px", padding: 0, fontFamily: "var(--font-body)" }}
                 >
                   ← Back to login
                 </button>
-                <h1 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "28px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 8px" }}>
+                <h1 style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 8px" }}>
                   Reset your password
                 </h1>
                 <p style={{ color: "#6B7A8D", fontSize: "15px", margin: "0 0 32px", lineHeight: 1.6 }}>
-                  Enter your email and we'll send a reset link within 60 seconds.
+                  Enter your email and we’ll send a reset link within 60 seconds.
                 </p>
                 <div style={{ marginBottom: "24px" }}>
                   <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: "#374a60", marginBottom: "6px" }}>
@@ -456,7 +456,7 @@ export default function LoginPage() {
                       fontSize: "15px",
                       color: "#0B3C5D",
                       outline: "none",
-                      fontFamily: "'DM Sans',sans-serif",
+                      fontFamily: "var(--font-body)",
                       boxSizing: "border-box",
                     }}
                   />
@@ -474,7 +474,7 @@ export default function LoginPage() {
                     border: "none",
                     fontSize: "16px",
                     fontWeight: "700",
-                    fontFamily: "'Plus Jakarta Sans',sans-serif",
+                    fontFamily: "var(--font-display)",
                     cursor: "pointer",
                   }}
                 >
@@ -511,11 +511,11 @@ export default function LoginPage() {
                 >
                   ✉️
                 </motion.div>
-                <h1 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "28px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 12px" }}>
+                <h1 style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 12px" }}>
                   Check your inbox!
                 </h1>
                 <p style={{ color: "#6B7A8D", fontSize: "15px", lineHeight: 1.65, margin: "0 0 32px" }}>
-                  We've sent a reset link to <strong style={{ color: "#0B3C5D" }}>{forgotEmail || "your email"}</strong>. Check spam if you don't see it within 60 seconds.
+                  We’ve sent a reset link to <strong style={{ color: "#0B3C5D" }}>{forgotEmail || "your email"}</strong>. Check spam if you don’t see it within 60 seconds.
                 </p>
                 <motion.button
                   onClick={() => setView("login")}
@@ -530,7 +530,7 @@ export default function LoginPage() {
                     fontWeight: "600",
                     color: "#0B3C5D",
                     cursor: "pointer",
-                    fontFamily: "'Plus Jakarta Sans',sans-serif",
+                    fontFamily: "var(--font-display)",
                   }}
                 >
                   ← Back to login
