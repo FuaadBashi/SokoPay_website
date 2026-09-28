@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const TRANSFER_FEED = [
   { flag: "🇰🇪", name: "Nairobi",       amount: "$240", to: "🇦🇪 Dubai",      time: "just now" },
@@ -62,13 +63,13 @@ export default function Hero() {
           {/* CTAs */}
           <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", opacity: mounted ? 1 : 0, transform: mounted ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.7s ease 300ms, transform 0.7s ease 300ms" }}>
             {/* → /signup */}
-            <a href="/signup"
+            <Link href="/signup"
               style={{ padding: "16px 32px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 8px 28px rgba(0,168,107,0.4)", letterSpacing: "-0.3px", transition: "transform 0.2s ease, box-shadow 0.2s ease" }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 36px rgba(0,168,107,0.5)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 28px rgba(0,168,107,0.4)"; }}
             >
               Get Started Free
-            </a>
+            </Link>
             {/* Smooth scroll to how-it-works */}
             <a href="#how-it-works"
               style={{ padding: "16px 32px", borderRadius: "14px", background: "rgba(255,255,255,0.08)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "600", fontFamily: "var(--font-display)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(10px)", letterSpacing: "-0.3px", transition: "background 0.2s ease" }}
@@ -127,9 +128,9 @@ export default function Hero() {
             </div>
 
             {/* Send button → /signup */}
-            <a href="/signup" style={{ display: "block", textAlign: "center", padding: "15px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", fontSize: "15px", fontWeight: "700", fontFamily: "var(--font-display)", textDecoration: "none", boxShadow: "0 4px 20px rgba(0,168,107,0.4)", letterSpacing: "-0.2px" }}>
+            <Link href="/signup" style={{ display: "block", textAlign: "center", padding: "15px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", fontSize: "15px", fontWeight: "700", fontFamily: "var(--font-display)", textDecoration: "none", boxShadow: "0 4px 20px rgba(0,168,107,0.4)", letterSpacing: "-0.2px" }}>
               Send $250 Instantly →
-            </a>
+            </Link>
 
             <div style={{ display: "flex", justifyContent: "center", marginTop: "16px", gap: "16px" }}>
               {["⚡ Under 60s", "🔒 Encrypted", "✓ No hidden fees"].map(b => (

@@ -48,18 +48,18 @@ export default function Navbar() {
         ))}
 
         {/* Log in → dashboard */}
-        <a href="/dashboard" style={{ color: scrolled ? "#0B3C5D" : "white", textDecoration: "none", fontSize: "15px", fontWeight: "500", fontFamily: "var(--font-body)", transition: "color 0.2s ease" }}>
+        <Link href="/dashboard" style={{ color: scrolled ? "#0B3C5D" : "white", textDecoration: "none", fontSize: "15px", fontWeight: "500", fontFamily: "var(--font-body)", transition: "color 0.2s ease" }}>
           Log in
-        </a>
+        </Link>
 
         {/* Get Started → signup */}
-        <a href="/signup"
+        <Link href="/signup"
           style={{ padding: "10px 22px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "600", fontFamily: "var(--font-display)", boxShadow: "0 4px 16px rgba(0,168,107,0.35)", transition: "transform 0.15s ease, box-shadow 0.15s ease" }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(0,168,107,0.45)"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px rgba(0,168,107,0.35)"; }}
         >
           Get Started
-        </a>
+        </Link>
       </div>
     </nav>
   );

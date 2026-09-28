@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const recentRecipients = [
@@ -166,7 +167,7 @@ export default function SendPage() {
         height: "64px",
         gap: "16px",
       }}>
-        <a href="/dashboard" style={{ color: "#9AAAB8", fontSize: "14px", textDecoration: "none" }}>← Dashboard</a>
+        <Link href="/dashboard" style={{ color: "#9AAAB8", fontSize: "14px", textDecoration: "none" }}>← Dashboard</Link>
         <div style={{ width: "1px", height: "20px", background: "rgba(11,60,93,0.1)" }} />
         <span style={{ color: "#0B3C5D", fontWeight: "700", fontSize: "16px", fontFamily: "var(--font-display)" }}>Send Money</span>
       </div>

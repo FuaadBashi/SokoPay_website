@@ -501,9 +501,9 @@ function StepDone({ accountType }: { accountType: AccountType }) {
         ))}
       </div>
 
-      <a href="/dashboard" style={{ display: "block", padding: "16px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 4px 20px rgba(0,168,107,0.35)", marginBottom: "12px" }}>
+      <Link href="/dashboard" style={{ display: "block", padding: "16px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 4px 20px rgba(0,168,107,0.35)", marginBottom: "12px" }}>
         Go to Dashboard →
-      </a>
+      </Link>
       <Link href="/" style={{ display: "block", padding: "14px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.1)", color: "#0B3C5D", textDecoration: "none", fontSize: "15px", fontWeight: "600", fontFamily: "var(--font-body)" }}>
         Back to Home
       </Link>
@@ -619,7 +619,7 @@ export default function SignUp() {
           {step < 5 && (
             <p style={{ textAlign: "center", color: "#94a3b8", fontSize: "13px", fontFamily: "var(--font-body)", marginTop: "28px" }}>
               Already have an account?{" "}
-              <a href="/login" style={{ color: "#00A86B", fontWeight: "700", textDecoration: "none" }}>Log in →</a>
+              <Link href="/login" style={{ color: "#00A86B", fontWeight: "700", textDecoration: "none" }}>Log in →</Link>
             </p>
           )}
         </motion.div>

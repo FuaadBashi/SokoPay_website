@@ -194,8 +194,8 @@ export default function PricingPage() {
           <span style={{ fontWeight: "800", fontSize: "18px", color: "#0B3C5D", letterSpacing: "-0.5px", fontFamily: "var(--font-display)" }}>SOKO<span style={{ color: "#00A86B" }}>PAY</span></span>
         </Link>
         <div style={{ display: "flex", gap: "12px" }}>
-          <a href="/login" style={{ padding: "9px 20px", borderRadius: "10px", border: "1.5px solid rgba(11,60,93,0.12)", color: "#0B3C5D", textDecoration: "none", fontSize: "14px", fontWeight: "600", fontFamily: "var(--font-body)" }}>Log in</a>
-          <a href="/signup" style={{ padding: "9px 20px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "14px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 3px 12px rgba(0,168,107,0.3)" }}>Get Started Free</a>
+          <Link href="/login" style={{ padding: "9px 20px", borderRadius: "10px", border: "1.5px solid rgba(11,60,93,0.12)", color: "#0B3C5D", textDecoration: "none", fontSize: "14px", fontWeight: "600", fontFamily: "var(--font-body)" }}>Log in</Link>
+          <Link href="/signup" style={{ padding: "9px 20px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "14px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 3px 12px rgba(0,168,107,0.3)" }}>Get Started Free</Link>
         </div>
       </nav>
 
@@ -425,12 +425,12 @@ export default function PricingPage() {
         </h2>
         <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "18px", fontFamily: "var(--font-body)", margin: "0 0 36px", position: "relative" }}>No credit card required. Get your first transfer free.</p>
         <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
-          <a href="/signup" style={{ padding: "16px 36px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 8px 28px rgba(0,168,107,0.4)" }}>
+          <Link href="/signup" style={{ padding: "16px 36px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "700", fontFamily: "var(--font-display)", boxShadow: "0 8px 28px rgba(0,168,107,0.4)" }}>
             Create Free Account →
-          </a>
-          <a href="/contact" style={{ padding: "16px 36px", borderRadius: "14px", background: "rgba(255,255,255,0.08)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "600", fontFamily: "var(--font-display)", border: "1px solid rgba(255,255,255,0.15)" }}>
+          </Link>
+          <Link href="/contact" style={{ padding: "16px 36px", borderRadius: "14px", background: "rgba(255,255,255,0.08)", color: "white", textDecoration: "none", fontSize: "16px", fontWeight: "600", fontFamily: "var(--font-display)", border: "1px solid rgba(255,255,255,0.15)" }}>
             Talk to Sales
-          </a>
+          </Link>
         </div>
       </section>
     </div>
