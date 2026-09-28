@@ -156,12 +156,12 @@ export default function Pricing() {
             padding: "6px 16px",
             borderRadius: "100px",
             marginBottom: "16px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
           }}>
             Pricing
           </span>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(30px, 4.5vw, 50px)",
             fontWeight: "800",
             color: "#0B3C5D",
@@ -181,12 +181,12 @@ export default function Pricing() {
           <p style={{
             color: "#6B7A8D",
             fontSize: "18px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
             maxWidth: "480px",
             margin: "0 auto 32px",
             lineHeight: 1.6,
           }}>
-            No hidden FX markups. No surprise fees. Start free, scale when you're ready.
+            No hidden FX markups. No surprise fees. Start free, scale when you’re ready.
           </p>
 
           {/* Toggle */}
@@ -209,7 +209,7 @@ export default function Pricing() {
                   color: mode === m ? "#0B3C5D" : "#9AAAB8",
                   fontSize: "14px",
                   fontWeight: "700",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "var(--font-display)",
                   cursor: "pointer",
                   boxShadow: mode === m ? "0 2px 12px rgba(11,60,93,0.1)" : "none",
                   transition: "all 0.25s",
@@ -281,7 +281,7 @@ export default function Pricing() {
                     textTransform: "uppercase",
                     padding: "4px 10px",
                     borderRadius: "100px",
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                   }}>
                     {plan.badge}
                   </div>
@@ -292,7 +292,7 @@ export default function Pricing() {
                     fontSize: "14px",
                     fontWeight: "700",
                     color: plan.highlight ? "rgba(255,255,255,0.6)" : "#9AAAB8",
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                     marginBottom: "4px",
                   }}>{plan.name}</div>
                   <div style={{ display: "flex", alignItems: "baseline", gap: "6px" }}>
@@ -300,19 +300,19 @@ export default function Pricing() {
                       fontSize: "40px",
                       fontWeight: "800",
                       color: plan.highlight ? "#fff" : "#0B3C5D",
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "var(--font-display)",
                       lineHeight: 1,
                     }}>{plan.price}</span>
                     <span style={{
                       fontSize: "13px",
                       color: plan.highlight ? "rgba(255,255,255,0.5)" : "#9AAAB8",
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "var(--font-body)",
                     }}>{plan.sub}</span>
                   </div>
                   <p style={{
                     fontSize: "13px",
                     color: plan.highlight ? "rgba(255,255,255,0.6)" : "#6B7A8D",
-                    fontFamily: "'DM Sans', sans-serif",
+                    fontFamily: "var(--font-body)",
                     lineHeight: 1.55,
                     marginTop: "10px",
                     marginBottom: 0,
@@ -330,7 +330,7 @@ export default function Pricing() {
                       color: f.included
                         ? (plan.highlight ? "rgba(255,255,255,0.85)" : "#374a60")
                         : (plan.highlight ? "rgba(255,255,255,0.25)" : "#C5CDD8"),
-                      fontFamily: "'DM Sans', sans-serif",
+                      fontFamily: "var(--font-body)",
                     }}>
                       <span style={{
                         width: "18px",
@@ -368,7 +368,7 @@ export default function Pricing() {
                     color: plan.highlight ? "#fff" : "#0B3C5D",
                     fontSize: "14px",
                     fontWeight: "700",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "var(--font-display)",
                     cursor: "pointer",
                   }}
                 >
@@ -388,7 +388,7 @@ export default function Pricing() {
             textAlign: "center",
             color: "#9AAAB8",
             fontSize: "13px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
             marginTop: "32px",
           }}
         >

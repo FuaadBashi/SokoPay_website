@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -51,7 +51,7 @@ function StepBar({ step }: { step: number }) {
                 justifyContent: "center",
                 fontWeight: "700",
                 fontSize: "14px",
-                fontFamily: "'Plus Jakarta Sans',sans-serif",
+                fontFamily: "var(--font-display)",
                 margin: "0 auto 6px",
               }}
             >
@@ -61,7 +61,7 @@ function StepBar({ step }: { step: number }) {
               fontSize: "11px",
               fontWeight: i === step ? "700" : "400",
               color: i === step ? "#0B3C5D" : "#9AAAB8",
-              fontFamily: "'DM Sans',sans-serif",
+              fontFamily: "var(--font-body)",
             }}>{s}</div>
           </div>
           {i < STEPS.length - 1 && (
@@ -117,6 +117,13 @@ export default function SendPage() {
   const [progress, setProgress] = useState(0);
   const [statusIdx, setStatusIdx] = useState(0);
   const [done, setDone] = useState(false);
+  const [receiptId, setReceiptId] = useState("");
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Stop the simulated transfer if the user leaves the page part-way through.
+  useEffect(() => () => {
+    if (timer.current) clearInterval(timer.current);
+  }, []);
 
   const fxRate = 132.45;
   const fee = deliveryMethods.find(d => d.id === delivery)?.fee || "$1.99";
@@ -124,6 +131,9 @@ export default function SendPage() {
 
   function startTransfer() {
     setStep(3);
+    // Generated here, in the event handler: generated during render, it changed on every
+    // re-render of the receipt.
+    setReceiptId(Math.random().toString(36).slice(2, 10).toUpperCase());
     let pct = 0;
     let si = 0;
     const iv = setInterval(() => {
@@ -133,6 +143,7 @@ export default function SendPage() {
       si = Math.min(si + 1, statusMessages.length - 1);
       setStatusIdx(si);
     }, 900);
+    timer.current = iv;
   }
 
   const canProceedStep1 = !!selectedRecipient;
@@ -142,7 +153,7 @@ export default function SendPage() {
     <div style={{
       minHeight: "100vh",
       background: "#F4F6F8",
-      fontFamily: "'DM Sans', sans-serif",
+      fontFamily: "var(--font-body)",
     }}>
 
       {/* Nav */}
@@ -157,7 +168,7 @@ export default function SendPage() {
       }}>
         <a href="/dashboard" style={{ color: "#9AAAB8", fontSize: "14px", textDecoration: "none" }}>← Dashboard</a>
         <div style={{ width: "1px", height: "20px", background: "rgba(11,60,93,0.1)" }} />
-        <span style={{ color: "#0B3C5D", fontWeight: "700", fontSize: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Send Money</span>
+        <span style={{ color: "#0B3C5D", fontWeight: "700", fontSize: "16px", fontFamily: "var(--font-display)" }}>Send Money</span>
       </div>
 
       <div style={{ maxWidth: "620px", margin: "0 auto", padding: "48px 24px" }}>
@@ -169,7 +180,7 @@ export default function SendPage() {
           {/* STEP 0 — Pick recipient ─────────────────────────────────────── */}
           {step === 0 && (
             <motion.div key="s0" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.35 }}>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "24px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 6px" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 6px" }}>
                 Who are you sending to?
               </h2>
               <p style={{ color: "#6B7A8D", fontSize: "15px", margin: "0 0 28px" }}>Pick a recent recipient or add someone new.</p>
@@ -201,7 +212,7 @@ export default function SendPage() {
                     >
                       <img src={r.avatar} alt={r.name} style={{ width: "48px", height: "48px", borderRadius: "50%" }} />
                       <div style={{ flex: 1 }}>
-                        <div style={{ fontWeight: "700", color: "#0B3C5D", fontSize: "15px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{r.name}</div>
+                        <div style={{ fontWeight: "700", color: "#0B3C5D", fontSize: "15px", fontFamily: "var(--font-display)" }}>{r.name}</div>
                         <div style={{ color: "#9AAAB8", fontSize: "13px" }}>{r.location} · {r.method}</div>
                       </div>
                       {selectedRecipient?.id === r.id && (
@@ -226,7 +237,7 @@ export default function SendPage() {
                   fontSize: "14px",
                   fontWeight: "600",
                   cursor: "pointer",
-                  fontFamily: "'DM Sans',sans-serif",
+                  fontFamily: "var(--font-body)",
                   marginBottom: "28px",
                 }}
               >
@@ -246,7 +257,7 @@ export default function SendPage() {
                   border: "none",
                   fontSize: "16px",
                   fontWeight: "700",
-                  fontFamily: "'Plus Jakarta Sans',sans-serif",
+                  fontFamily: "var(--font-display)",
                   cursor: canProceedStep1 ? "pointer" : "not-allowed",
                   transition: "all 0.2s",
                 }}
@@ -259,7 +270,7 @@ export default function SendPage() {
           {/* STEP 1 — Amount ─────────────────────────────────────────────── */}
           {step === 1 && (
             <motion.div key="s1" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.35 }}>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "24px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 6px" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 6px" }}>
                 How much to send?
               </h2>
               <p style={{ color: "#6B7A8D", fontSize: "15px", margin: "0 0 28px" }}>
@@ -284,7 +295,7 @@ export default function SendPage() {
                       fontSize: "14px",
                       fontWeight: "700",
                       cursor: "pointer",
-                      fontFamily: "'Plus Jakarta Sans',sans-serif",
+                      fontFamily: "var(--font-display)",
                       transition: "all 0.15s",
                     }}
                   >
@@ -303,7 +314,7 @@ export default function SendPage() {
                   fontSize: "24px",
                   fontWeight: "700",
                   color: "#9AAAB8",
-                  fontFamily: "'Plus Jakarta Sans',sans-serif",
+                  fontFamily: "var(--font-display)",
                 }}>$</span>
                 <input
                   type="number"
@@ -320,7 +331,7 @@ export default function SendPage() {
                     fontSize: "32px",
                     fontWeight: "800",
                     color: "#0B3C5D",
-                    fontFamily: "'Plus Jakarta Sans',sans-serif",
+                    fontFamily: "var(--font-display)",
                     outline: "none",
                     boxSizing: "border-box",
                   }}
@@ -345,7 +356,7 @@ export default function SendPage() {
                 >
                   <div>
                     <div style={{ color: "#6B7A8D", fontSize: "12px", marginBottom: "2px" }}>Recipient gets</div>
-                    <div style={{ color: "#0B3C5D", fontWeight: "800", fontSize: "22px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+                    <div style={{ color: "#0B3C5D", fontWeight: "800", fontSize: "22px", fontFamily: "var(--font-display)" }}>
                       KSh {received}
                     </div>
                   </div>
@@ -379,7 +390,7 @@ export default function SendPage() {
                       }}
                     >
                       <div style={{ fontSize: "20px", marginBottom: "4px" }}>{d.icon}</div>
-                      <div style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{d.label}</div>
+                      <div style={{ fontSize: "13px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>{d.label}</div>
                       <div style={{ fontSize: "11px", color: "#9AAAB8" }}>{d.time}</div>
                       <div style={{ fontSize: "12px", color: d.fee === "Free" ? "#00A86B" : "#374a60", fontWeight: "600", marginTop: "2px" }}>{d.fee}</div>
                     </motion.button>
@@ -391,7 +402,7 @@ export default function SendPage() {
                 <motion.button
                   onClick={() => setStep(0)}
                   whileHover={{ scale: 1.02 }}
-                  style={{ flex: "0 0 auto", padding: "16px 24px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.12)", background: "#fff", color: "#374a60", fontSize: "15px", fontWeight: "600", cursor: "pointer", fontFamily: "'DM Sans',sans-serif" }}
+                  style={{ flex: "0 0 auto", padding: "16px 24px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.12)", background: "#fff", color: "#374a60", fontSize: "15px", fontWeight: "600", cursor: "pointer", fontFamily: "var(--font-body)" }}
                 >
                   ←
                 </motion.button>
@@ -407,7 +418,7 @@ export default function SendPage() {
                     border: "none",
                     fontSize: "16px",
                     fontWeight: "700",
-                    fontFamily: "'Plus Jakarta Sans',sans-serif",
+                    fontFamily: "var(--font-display)",
                     cursor: canProceedStep2 ? "pointer" : "not-allowed",
                     transition: "all 0.2s",
                   }}
@@ -421,7 +432,7 @@ export default function SendPage() {
           {/* STEP 2 — Review ─────────────────────────────────────────────── */}
           {step === 2 && (
             <motion.div key="s2" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }} transition={{ duration: 0.35 }}>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "24px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 6px" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "24px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 6px" }}>
                 Review & Confirm
               </h2>
               <p style={{ color: "#6B7A8D", fontSize: "15px", margin: "0 0 28px" }}>Double-check before sending.</p>
@@ -431,7 +442,7 @@ export default function SendPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: "14px", paddingBottom: "20px", borderBottom: "1px solid rgba(11,60,93,0.06)", marginBottom: "20px" }}>
                   <img src={selectedRecipient?.avatar} alt="" style={{ width: "52px", height: "52px", borderRadius: "50%" }} />
                   <div>
-                    <div style={{ fontWeight: "700", color: "#0B3C5D", fontSize: "17px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{selectedRecipient?.name}</div>
+                    <div style={{ fontWeight: "700", color: "#0B3C5D", fontSize: "17px", fontFamily: "var(--font-display)" }}>{selectedRecipient?.name}</div>
                     <div style={{ color: "#9AAAB8", fontSize: "13px" }}>{selectedRecipient?.location} · {selectedRecipient?.method}</div>
                   </div>
                 </div>
@@ -456,7 +467,7 @@ export default function SendPage() {
                       fontWeight: i === arr.length - 1 ? "800" : "600",
                       fontSize: i === arr.length - 1 ? "18px" : "14px",
                       color: i === 1 ? "#00A86B" : "#0B3C5D",
-                      fontFamily: i === arr.length - 1 ? "'Plus Jakarta Sans',sans-serif" : "'DM Sans',sans-serif",
+                      fontFamily: i === arr.length - 1 ? "var(--font-display)" : "var(--font-body)",
                     }}>{val}</span>
                   </div>
                 ))}
@@ -466,7 +477,7 @@ export default function SendPage() {
                 <motion.button
                   onClick={() => setStep(1)}
                   whileHover={{ scale: 1.02 }}
-                  style={{ flex: "0 0 auto", padding: "16px 24px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.12)", background: "#fff", color: "#374a60", fontSize: "15px", fontWeight: "600", cursor: "pointer", fontFamily: "'DM Sans',sans-serif" }}
+                  style={{ flex: "0 0 auto", padding: "16px 24px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.12)", background: "#fff", color: "#374a60", fontSize: "15px", fontWeight: "600", cursor: "pointer", fontFamily: "var(--font-body)" }}
                 >
                   ←
                 </motion.button>
@@ -478,7 +489,7 @@ export default function SendPage() {
                     flex: 1, padding: "16px", borderRadius: "14px",
                     background: "linear-gradient(135deg, #00A86B, #009e65)",
                     color: "#fff", border: "none", fontSize: "16px", fontWeight: "700",
-                    fontFamily: "'Plus Jakarta Sans',sans-serif", cursor: "pointer",
+                    fontFamily: "var(--font-display)", cursor: "pointer",
                   }}
                 >
                   Send ${amount} Now →
@@ -499,14 +510,14 @@ export default function SendPage() {
                       position: "absolute", inset: 0, display: "flex", flexDirection: "column",
                       alignItems: "center", justifyContent: "center",
                     }}>
-                      <div style={{ fontSize: "28px", fontWeight: "800", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+                      <div style={{ fontSize: "28px", fontWeight: "800", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>
                         {Math.round(progress)}%
                       </div>
                       <div style={{ fontSize: "11px", color: "#9AAAB8" }}>processing</div>
                     </div>
                   </div>
 
-                  <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "22px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 8px" }}>
+                  <h2 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 8px" }}>
                     Sending ${amount} to {selectedRecipient?.name}
                   </h2>
 
@@ -544,7 +555,7 @@ export default function SendPage() {
                     ✓
                   </motion.div>
 
-                  <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "26px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 8px" }}>
+                  <h2 style={{ fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: "800", color: "#0B3C5D", margin: "0 0 8px" }}>
                     Transfer complete!
                   </h2>
                   <p style={{ color: "#6B7A8D", fontSize: "15px", marginBottom: "28px", lineHeight: 1.6 }}>
@@ -563,7 +574,7 @@ export default function SendPage() {
                   }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
                       <span style={{ color: "#9AAAB8", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.08em" }}>Receipt</span>
-                      <span style={{ color: "#9AAAB8", fontSize: "12px" }}>#{Math.random().toString(36).slice(2, 10).toUpperCase()}</span>
+                      <span style={{ color: "#9AAAB8", fontSize: "12px" }}>#{receiptId}</span>
                     </div>
                     {[
                       ["Amount sent", `$${amount}`],
@@ -581,14 +592,14 @@ export default function SendPage() {
                   <div style={{ display: "flex", gap: "12px" }}>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
-                      style={{ flex: 1, padding: "14px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.12)", background: "#fff", color: "#374a60", fontSize: "14px", fontWeight: "600", cursor: "pointer", fontFamily: "'DM Sans',sans-serif" }}
+                      style={{ flex: 1, padding: "14px", borderRadius: "14px", border: "2px solid rgba(11,60,93,0.12)", background: "#fff", color: "#374a60", fontSize: "14px", fontWeight: "600", cursor: "pointer", fontFamily: "var(--font-body)" }}
                     >
                       Download Receipt
                     </motion.button>
                     <motion.button
                       onClick={() => { setStep(0); setAmount(""); setSelectedRecipient(null); setProgress(0); setStatusIdx(0); setDone(false); }}
                       whileHover={{ scale: 1.02, boxShadow: "0 6px 24px rgba(0,168,107,0.3)" }}
-                      style={{ flex: 1, padding: "14px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #009e65)", color: "#fff", border: "none", fontSize: "14px", fontWeight: "700", cursor: "pointer", fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+                      style={{ flex: 1, padding: "14px", borderRadius: "14px", background: "linear-gradient(135deg, #00A86B, #009e65)", color: "#fff", border: "none", fontSize: "14px", fontWeight: "700", cursor: "pointer", fontFamily: "var(--font-display)" }}
                     >
                       Send Again →
                     </motion.button>

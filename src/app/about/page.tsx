@@ -1,13 +1,12 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 const s = (i: number) => ({
   initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.55, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as any },
+  transition: { duration: 0.55, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const },
 });
 
 const milestones = [
@@ -43,7 +42,7 @@ const investors = [
 
 export default function AboutPage() {
   return (
-    <main style={{ fontFamily: "'DM Sans', sans-serif", overflowX: "hidden" }}>
+    <main style={{ fontFamily: "var(--font-body)", overflowX: "hidden" }}>
 
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section style={{ background: "linear-gradient(155deg, #0B3C5D 0%, #082a44 60%, #051d30 100%)", padding: "120px 24px 100px", position: "relative", overflow: "hidden" }}>
@@ -53,20 +52,20 @@ export default function AboutPage() {
 
         <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <span style={{ display: "inline-block", background: "rgba(0,168,107,0.15)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "20px", fontFamily: "'DM Sans',sans-serif" }}>
+            <span style={{ display: "inline-block", background: "rgba(0,168,107,0.15)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "20px", fontFamily: "var(--font-body)" }}>
               Our Story
             </span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "clamp(34px,6vw,62px)", fontWeight: "800", color: "#fff", lineHeight: 1.12, margin: "0 0 24px", letterSpacing: "-0.02em" }}>
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(34px,6vw,62px)", fontWeight: "800", color: "#fff", lineHeight: 1.12, margin: "0 0 24px", letterSpacing: "-0.02em" }}>
             Built by Africans,<br/>
             <span style={{ background: "linear-gradient(135deg, #00A86B, #7ED957)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              for the world's corridors
+              for the world’s corridors
             </span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             style={{ color: "rgba(255,255,255,0.55)", fontSize: "19px", lineHeight: 1.65, margin: "0 auto 40px", maxWidth: "620px" }}>
-            We started SOKOPAY because we watched friends and family lose 10–15% of their hard-earned wages to legacy banks and money transfer operators. There's a better way.
+            We started SOKOPAY because we watched friends and family lose 10–15% of their hard-earned wages to legacy banks and money transfer operators. There’s a better way.
           </motion.p>
 
           {/* Hero stats */}
@@ -74,8 +73,8 @@ export default function AboutPage() {
             style={{ display: "inline-flex", gap: "40px", flexWrap: "wrap", justifyContent: "center" }}>
             {[["$2B+","Processed"], ["1M+","Users"], ["50+","Countries"], ["2021","Founded"]].map(([val, lbl]) => (
               <div key={lbl} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "32px", fontWeight: "800", color: "#fff", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{val}</div>
-                <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", fontFamily: "'DM Sans',sans-serif" }}>{lbl}</div>
+                <div style={{ fontSize: "32px", fontWeight: "800", color: "#fff", fontFamily: "var(--font-display)" }}>{val}</div>
+                <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-body)" }}>{lbl}</div>
               </div>
             ))}
           </motion.div>
@@ -87,14 +86,14 @@ export default function AboutPage() {
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
             <motion.div {...s(0)}>
-              <span style={{ display: "inline-block", background: "rgba(0,168,107,0.1)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans',sans-serif" }}>
+              <span style={{ display: "inline-block", background: "rgba(0,168,107,0.1)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)" }}>
                 Our Mission
               </span>
-              <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: "0 0 20px" }}>
-                To make the world's money move as freely as its people
+              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: "0 0 20px" }}>
+                To make the world’s money move as freely as its people
               </h2>
               <p style={{ color: "#6B7A8D", fontSize: "16px", lineHeight: 1.7, margin: "0 0 20px" }}>
-                The East Africa–GCC corridor is home to 23 million people who send money across borders every month. Yet the average fee is still 7–10%. That's $1.8 billion in fees drained from families and small businesses every year.
+                The East Africa–GCC corridor is home to 23 million people who send money across borders every month. Yet the average fee is still 7–10%. That’s $1.8 billion in fees drained from families and small businesses every year.
               </p>
               <p style={{ color: "#6B7A8D", fontSize: "16px", lineHeight: 1.7, margin: 0 }}>
                 SOKOPAY exists to end that. We use modern infrastructure, smart FX routing, and mobile money rails to move money faster, cheaper, and with complete transparency.
@@ -115,9 +114,9 @@ export default function AboutPage() {
                     whileHover={{ y: -4 }}
                     style={{ padding: "20px", borderRadius: "16px", background: i === 0 ? "linear-gradient(135deg, #0B3C5D, #0e4878)" : "#F4F6F8", border: i === 0 ? "none" : "1px solid rgba(11,60,93,0.08)" }}
                   >
-                    <div style={{ fontSize: "28px", fontWeight: "800", color: i === 0 ? "#7ED957" : "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "4px" }}>{c.num}</div>
-                    <div style={{ fontSize: "13px", fontWeight: "700", color: i === 0 ? "rgba(255,255,255,0.7)" : "#374a60", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "2px" }}>{c.label}</div>
-                    <div style={{ fontSize: "12px", color: i === 0 ? "rgba(255,255,255,0.4)" : "#9AAAB8", fontFamily: "'DM Sans',sans-serif" }}>{c.sub}</div>
+                    <div style={{ fontSize: "28px", fontWeight: "800", color: i === 0 ? "#7ED957" : "#0B3C5D", fontFamily: "var(--font-display)", marginBottom: "4px" }}>{c.num}</div>
+                    <div style={{ fontSize: "13px", fontWeight: "700", color: i === 0 ? "rgba(255,255,255,0.7)" : "#374a60", fontFamily: "var(--font-display)", marginBottom: "2px" }}>{c.label}</div>
+                    <div style={{ fontSize: "12px", color: i === 0 ? "rgba(255,255,255,0.4)" : "#9AAAB8", fontFamily: "var(--font-body)" }}>{c.sub}</div>
                   </motion.div>
                 ))}
               </div>
@@ -130,10 +129,10 @@ export default function AboutPage() {
       <section style={{ background: "#F4F6F8", padding: "100px 24px" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <motion.div {...s(0)} style={{ textAlign: "center", marginBottom: "64px" }}>
-            <span style={{ display: "inline-block", background: "rgba(77,168,218,0.1)", color: "#4DA8DA", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans',sans-serif" }}>
+            <span style={{ display: "inline-block", background: "rgba(77,168,218,0.1)", color: "#4DA8DA", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)" }}>
               Milestones
             </span>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: 0 }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: 0 }}>
               How we got here
             </h2>
           </motion.div>
@@ -153,9 +152,9 @@ export default function AboutPage() {
                 {/* Dot */}
                 <div style={{ position: "absolute", left: "50%", top: "22px", width: "14px", height: "14px", borderRadius: "50%", background: "#00A86B", border: "3px solid #fff", transform: "translateX(-50%)", boxShadow: "0 0 0 4px rgba(0,168,107,0.2)", zIndex: 2 }}/>
 
-                <div style={{ width: "calc(50% - 32px)", padding: "20px", borderRadius: "16px", background: "#fff", boxShadow: "0 4px 20px rgba(11,60,93,0.07)", border: "1px solid rgba(11,60,93,0.07)", [i%2===0 ? "marginRight" : "marginLeft"]: "0" as any }}>
-                  <div style={{ fontSize: "12px", fontWeight: "700", color: "#00A86B", fontFamily: "'DM Sans',sans-serif", letterSpacing: "0.06em", marginBottom: "4px" }}>{m.year}</div>
-                  <div style={{ fontSize: "16px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "6px" }}>{m.title}</div>
+                <div style={{ width: "calc(50% - 32px)", padding: "20px", borderRadius: "16px", background: "#fff", boxShadow: "0 4px 20px rgba(11,60,93,0.07)", border: "1px solid rgba(11,60,93,0.07)", ...(i % 2 === 0 ? { marginRight: "0" } : { marginLeft: "0" }) }}>
+                  <div style={{ fontSize: "12px", fontWeight: "700", color: "#00A86B", fontFamily: "var(--font-body)", letterSpacing: "0.06em", marginBottom: "4px" }}>{m.year}</div>
+                  <div style={{ fontSize: "16px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)", marginBottom: "6px" }}>{m.title}</div>
                   <div style={{ fontSize: "13px", color: "#6B7A8D", lineHeight: 1.6 }}>{m.body}</div>
                 </div>
               </motion.div>
@@ -168,8 +167,8 @@ export default function AboutPage() {
       <section style={{ background: "#fff", padding: "100px 24px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <motion.div {...s(0)} style={{ textAlign: "center", marginBottom: "64px" }}>
-            <span style={{ display: "inline-block", background: "rgba(0,168,107,0.1)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans',sans-serif" }}>Values</span>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: 0 }}>What we stand for</h2>
+            <span style={{ display: "inline-block", background: "rgba(0,168,107,0.1)", color: "#00A86B", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)" }}>Values</span>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: 0 }}>What we stand for</h2>
           </motion.div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
             {values.map((v, i) => (
@@ -180,7 +179,7 @@ export default function AboutPage() {
                 style={{ padding: "28px 24px", borderRadius: "20px", background: "#F4F6F8", border: "1px solid rgba(11,60,93,0.06)" }}
               >
                 <div style={{ fontSize: "32px", marginBottom: "14px" }}>{v.icon}</div>
-                <div style={{ fontSize: "16px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "10px" }}>{v.title}</div>
+                <div style={{ fontSize: "16px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)", marginBottom: "10px" }}>{v.title}</div>
                 <div style={{ fontSize: "14px", color: "#6B7A8D", lineHeight: 1.65 }}>{v.body}</div>
               </motion.div>
             ))}
@@ -192,8 +191,8 @@ export default function AboutPage() {
       <section style={{ background: "#F4F6F8", padding: "100px 24px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <motion.div {...s(0)} style={{ textAlign: "center", marginBottom: "64px" }}>
-            <span style={{ display: "inline-block", background: "rgba(11,60,93,0.08)", color: "#0B3C5D", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "'DM Sans',sans-serif" }}>Team</span>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: 0 }}>The people behind SOKOPAY</h2>
+            <span style={{ display: "inline-block", background: "rgba(11,60,93,0.08)", color: "#0B3C5D", fontSize: "12px", fontWeight: "700", letterSpacing: "0.14em", textTransform: "uppercase", padding: "6px 16px", borderRadius: "100px", marginBottom: "16px", fontFamily: "var(--font-body)" }}>Team</span>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "38px", fontWeight: "800", color: "#0B3C5D", lineHeight: 1.2, margin: 0 }}>The people behind SOKOPAY</h2>
           </motion.div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
             {team.map((t, i) => (
@@ -207,7 +206,7 @@ export default function AboutPage() {
                   <img src={t.img} alt={t.name} style={{ width: "72px", height: "72px", borderRadius: "50%", objectFit: "cover", border: "3px solid #fff", marginBottom: "-36px", boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}/>
                 </div>
                 <div style={{ padding: "44px 20px 22px" }}>
-                  <div style={{ fontSize: "16px", fontWeight: "700", color: "#0B3C5D", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{t.name}</div>
+                  <div style={{ fontSize: "16px", fontWeight: "700", color: "#0B3C5D", fontFamily: "var(--font-display)" }}>{t.name}</div>
                   <div style={{ fontSize: "13px", color: "#00A86B", fontWeight: "600", marginBottom: "4px" }}>{t.role}</div>
                   <div style={{ fontSize: "12px", color: "#9AAAB8", marginBottom: "10px" }}>{t.origin}</div>
                   <div style={{ fontSize: "13px", color: "#6B7A8D", lineHeight: 1.6 }}>{t.bio}</div>
@@ -221,7 +220,7 @@ export default function AboutPage() {
       {/* ── INVESTORS ──────────────────────────────────────────────────────── */}
       <section style={{ background: "#0B3C5D", padding: "72px 24px" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
-          <motion.p {...s(0)} style={{ color: "rgba(255,255,255,0.35)", fontSize: "12px", letterSpacing: "0.14em", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif", marginBottom: "32px" }}>
+          <motion.p {...s(0)} style={{ color: "rgba(255,255,255,0.35)", fontSize: "12px", letterSpacing: "0.14em", textTransform: "uppercase", fontFamily: "var(--font-body)", marginBottom: "32px" }}>
             Backed by world-class investors
           </motion.p>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "48px", flexWrap: "wrap" }}>
@@ -232,7 +231,7 @@ export default function AboutPage() {
                 style={{ height: "28px", opacity: 0.35, filter: "brightness(0) invert(1)", transition: "opacity 0.3s" }}
               >
                 <img src={inv.logo} alt={inv.name} style={{ height: "100%", width: "auto", objectFit: "contain" }}
-                  onError={e => { const el = e.currentTarget.parentElement!; el.innerHTML = `<span style="color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700">${inv.name}</span>`; }}
+                  onError={e => { const el = e.currentTarget.parentElement!; el.innerHTML = `<span style="color:rgba(255,255,255,0.5);font-family:var(--font-body);font-size:14px;font-weight:700">${inv.name}</span>`; }}
                 />
               </motion.div>
             ))}

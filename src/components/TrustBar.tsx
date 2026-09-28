@@ -90,14 +90,14 @@ export default function TrustBar() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "var(--font-display)",
                 lineHeight: 1.1,
                 marginBottom: "6px",
               }}>{stat.value}</div>
               <div style={{
                 color: "rgba(255,255,255,0.6)",
                 fontSize: "13px",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "var(--font-body)",
                 letterSpacing: "0.02em",
               }}>{stat.label}</div>
             </motion.div>
@@ -125,7 +125,7 @@ export default function TrustBar() {
             textAlign: "center",
             color: "rgba(255,255,255,0.4)",
             fontSize: "12px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
             letterSpacing: "0.15em",
             textTransform: "uppercase",
             marginBottom: "32px",
@@ -164,7 +164,7 @@ export default function TrustBar() {
                 style={{ height: "100%", width: "auto", objectFit: "contain" }}
                 onError={(e) => {
                   const el = e.currentTarget.parentElement!;
-                  el.innerHTML = `<span style="color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.05em">${p.name}</span>`;
+                  el.innerHTML = `<span style="color:rgba(255,255,255,0.5);font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.05em">${p.name}</span>`;
                 }}
               />
             </motion.div>

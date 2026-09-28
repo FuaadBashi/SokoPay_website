@@ -99,11 +99,11 @@ export default function Testimonials() {
         fontSize: "220px",
         lineHeight: 1,
         color: "rgba(11,60,93,0.04)",
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontFamily: "var(--font-display)",
         fontWeight: "900",
         pointerEvents: "none",
         userSelect: "none",
-      }}>"</div>
+      }}>“</div>
 
       <div style={{ maxWidth: "1160px", margin: "0 auto", position: "relative" }} ref={ref}>
 
@@ -125,12 +125,12 @@ export default function Testimonials() {
             padding: "6px 16px",
             borderRadius: "100px",
             marginBottom: "16px",
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "var(--font-body)",
           }}>
             Testimonials
           </span>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(30px, 4.5vw, 50px)",
             fontWeight: "800",
             color: "#0B3C5D",
@@ -143,8 +143,8 @@ export default function Testimonials() {
           {/* Aggregate rating */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px" }}>
             <Stars count={5} />
-            <span style={{ color: "#374a60", fontSize: "15px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>4.9/5</span>
-            <span style={{ color: "#9AAAB8", fontSize: "14px", fontFamily: "'DM Sans',sans-serif" }}>from 12,000+ reviews</span>
+            <span style={{ color: "#374a60", fontSize: "15px", fontWeight: "700", fontFamily: "var(--font-display)" }}>4.9/5</span>
+            <span style={{ color: "#9AAAB8", fontSize: "14px", fontFamily: "var(--font-body)" }}>from 12,000+ reviews</span>
           </div>
         </motion.div>
 
@@ -185,7 +185,7 @@ export default function Testimonials() {
                     fontWeight: "700",
                     padding: "3px 10px",
                     borderRadius: "100px",
-                    fontFamily: "'DM Sans',sans-serif",
+                    fontFamily: "var(--font-body)",
                     letterSpacing: "0.06em",
                   }}>
                     {t.tag}
@@ -197,13 +197,13 @@ export default function Testimonials() {
                 <p style={{
                   color: "#374a60",
                   fontSize: "15px",
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "var(--font-body)",
                   lineHeight: 1.65,
                   margin: 0,
                   flex: 1,
                   fontStyle: "italic",
                 }}>
-                  "{t.quote}"
+                  “{t.quote}”
                 </p>
 
                 {/* Author */}
@@ -214,8 +214,8 @@ export default function Testimonials() {
                     style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover" }}
                   />
                   <div>
-                    <div style={{ fontWeight: "700", color: "#0B3C5D", fontSize: "14px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{t.name}</div>
-                    <div style={{ color: "#9AAAB8", fontSize: "12px", fontFamily: "'DM Sans',sans-serif" }}>{t.title} · {t.location}</div>
+                    <div style={{ fontWeight: "700", color: "#0B3C5D", fontSize: "14px", fontFamily: "var(--font-display)" }}>{t.name}</div>
+                    <div style={{ color: "#9AAAB8", fontSize: "12px", fontFamily: "var(--font-body)" }}>{t.title} · {t.location}</div>
                   </div>
                 </div>
               </motion.div>

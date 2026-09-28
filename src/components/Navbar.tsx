@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,34 +25,36 @@ export default function Navbar() {
       }}
     >
       {/* Logo → home */}
-      <a href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
-        <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "800", fontSize: "16px", color: "white", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>S</div>
-        <span style={{ fontWeight: "800", fontSize: "20px", color: scrolled ? "#0B3C5D" : "white", letterSpacing: "-0.5px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
+        <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "800", fontSize: "16px", color: "white", fontFamily: "var(--font-display)" }}>S</div>
+        <span style={{ fontWeight: "800", fontSize: "20px", color: scrolled ? "#0B3C5D" : "white", letterSpacing: "-0.5px", fontFamily: "var(--font-display)" }}>
           SOKO<span style={{ color: "#00A86B" }}>PAY</span>
         </span>
-      </a>
+      </Link>
 
       {/* Nav links */}
       <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
         {[
-          { label: "Products",  href: "/#products" },
-          { label: "Corridors", href: "/#corridors" },
+          // Dedicated pages; the old "/#products"-style anchors pointed at sections the home
+          // page doesn't have, so those links did nothing.
+          { label: "Products",  href: "/products" },
+          { label: "Corridors", href: "/corridors" },
           { label: "Pricing",   href: "/pricing" },
-          { label: "About",     href: "/#about" },
+          { label: "About",     href: "/about" },
         ].map((link) => (
-          <a key={link.label} href={link.href} style={{ color: scrolled ? "#0B3C5D" : "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: "15px", fontWeight: "500", fontFamily: "'DM Sans', sans-serif", transition: "color 0.2s ease" }}>
+          <Link key={link.label} href={link.href} style={{ color: scrolled ? "#0B3C5D" : "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: "15px", fontWeight: "500", fontFamily: "var(--font-body)", transition: "color 0.2s ease" }}>
             {link.label}
-          </a>
+          </Link>
         ))}
 
         {/* Log in → dashboard */}
-        <a href="/dashboard" style={{ color: scrolled ? "#0B3C5D" : "white", textDecoration: "none", fontSize: "15px", fontWeight: "500", fontFamily: "'DM Sans', sans-serif", transition: "color 0.2s ease" }}>
+        <a href="/dashboard" style={{ color: scrolled ? "#0B3C5D" : "white", textDecoration: "none", fontSize: "15px", fontWeight: "500", fontFamily: "var(--font-body)", transition: "color 0.2s ease" }}>
           Log in
         </a>
 
         {/* Get Started → signup */}
         <a href="/signup"
-          style={{ padding: "10px 22px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "600", fontFamily: "'Plus Jakarta Sans', sans-serif", boxShadow: "0 4px 16px rgba(0,168,107,0.35)", transition: "transform 0.15s ease, box-shadow 0.15s ease" }}
+          style={{ padding: "10px 22px", borderRadius: "10px", background: "linear-gradient(135deg, #00A86B, #7ED957)", color: "white", textDecoration: "none", fontSize: "15px", fontWeight: "600", fontFamily: "var(--font-display)", boxShadow: "0 4px 16px rgba(0,168,107,0.35)", transition: "transform 0.15s ease, box-shadow 0.15s ease" }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 20px rgba(0,168,107,0.45)"; }}
           onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 16px rgba(0,168,107,0.35)"; }}
         >
