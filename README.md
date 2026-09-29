@@ -6,6 +6,9 @@ A front-end prototype for a cross-border payments product connecting East Africa
 built with Next.js 16, React 19, TypeScript, Tailwind CSS 4 and Framer Motion. It includes a
 marketing site, an account dashboard, and an animated four-step send-money flow.
 
+**Live demo:** [fuaadbashi.github.io/SokoPay_website](https://fuaadbashi.github.io/SokoPay_website/). It's a static
+build published to GitHub Pages on every push to `main`, and all its data is sample data.
+
 <p align="center"><img src="docs/screenshot.png" alt="SOKOPAY landing page" width="760"></p>
 
 ## What's in it
