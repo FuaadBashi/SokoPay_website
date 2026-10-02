@@ -1,16 +1,15 @@
 name: Deploy to GitHub Pages
 
-# Publishes the static site on every push to main.
-# One-time setup: repository Settings -> Pages -> Source: "GitHub Actions".
+# Builds the static site on every push to main and publishes it to the gh-pages branch.
+# One-time setup, after the first run has created the branch:
+# repository Settings -> Pages -> Source: "Deploy from a branch", Branch: gh-pages, / (root), Save.
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # A newer push supersedes an in-flight deploy instead of racing it.
 concurrency:
@@ -18,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -31,16 +30,19 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: 'true'
-      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
-        with:
-          path: out
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-24.04
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
+      # Branch-based Pages runs Jekyll first, which drops every folder starting with "_".
+      # Next puts all its CSS and JS in out/_next, so without this file the site loads unstyled.
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
+      # gh-pages holds only generated files, so each deploy replaces it with a single fresh commit.
+      - name: Publish to gh-pages
+        working-directory: out
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init -q -b gh-pages
+          git add -A
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Deploy ${GITHUB_SHA}"
+          git push -q -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
