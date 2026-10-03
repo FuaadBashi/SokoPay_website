@@ -1,0 +1,16 @@
+1:"$Sreact.fragment"
+2:I[45678,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+3:I[32177,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+4:I[66636,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+5:I[15775,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+6:I[71239,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+7:I[35514,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+8:I[42662,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+9:I[18667,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+a:I[25050,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+b:I[48232,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"CTASection"]
+c:I[48232,["/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js"],"default"]
+d:I[97367,["/SokoPay_website/_next/static/chunks/ff1a16fafef87110.js","/SokoPay_website/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+0:{"buildId":"mxor7ffn6Y3zDR5ilgHS4","rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{}],["$","$Lb",null,{}],["$","$Lc",null,{}]]}],[["$","script","script-0",{"src":"/SokoPay_website/_next/static/chunks/8c54d25406b6506c.js","async":true}],["$","script","script-1",{"src":"/SokoPay_website/_next/static/chunks/e58b108e41ac60ef.js","async":true}],["$","script","script-2",{"src":"/SokoPay_website/_next/static/chunks/395ec2e9460190b5.js","async":true}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"loading":null,"isPartial":false}
+f:null
